@@ -43,8 +43,8 @@ blenderGulp.options = {
             js : ['app.js', 'chart.js']
         }
     },
-    url: 'http://groener.be',
-    dev: 'http://groener.be.192.168.10.10.xip.io/'
+    url: '...',
+    dev: '...192.168.10.10.xip.io/'
 };
 
 // Initialize
