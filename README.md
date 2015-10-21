@@ -28,7 +28,27 @@ $ npm i spatie-custom/blender-gulp#1.0.0 --save-dev
 ## Sample gulpfile.js
 
 ``` js
+// Include blender-gulp npm module
+var blenderGulp = require("blender-gulp");
 
+// Define options: which files? Which url for BrowserSync?
+blenderGulp.options = {
+    files : {
+        front : {
+            sass : 'front/front.scss',
+            js : ['app.js']
+        },
+        back : {
+            sass : 'back/back.scss',
+            js : ['app.js', 'chart.js']
+        }
+    },
+    url: 'http://groener.be',
+    dev: 'http://groener.be.192.168.10.10.xip.io/'
+};
+
+// Initialize
+blenderGulp.init();
 
 ```
 
