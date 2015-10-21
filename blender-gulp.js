@@ -1,18 +1,28 @@
 var blenderGulp = require("./lib/config");
 
 blenderGulp.init =  function () {
-    var blenderGulp = this;
-
     // Modules & their configuration */
     var elixir = require('laravel-elixir');
     var gutil = require('gulp-util');
     require("./lib/extend");
 
+    var blenderGulp = this;
+
     // Settings
     elixir.config.sourcemaps = false;
-    if (blenderGulp.disableNotifier) process.env.DISABLE_NOTIFIER = true;
+    process.env.DISABLE_NOTIFIER = blenderGulp.disableNotifier;
     process.env.module = (gutil.env.back == 1) ? 'back' : 'front';
-    process.env.dev = blenderGulp.options.dev + ( (gutil.env.back == 1)? blenderGulp.paths.admin : '' );
+
+    // Map Browsersync custom options to the configuration
+    Object.keys(blenderGulp.options.browserSync).forEach(function (key) {
+        blenderGulp.browserSync[key] = blenderGulp.options.browserSync[key];
+    });
+
+    // Sync front or back?
+    blenderGulp.browserSync.proxy = blenderGulp.browserSync.proxy + ( (gutil.env.back == 1)? blenderGulp.paths.admin : '' );
+
+
+    console.log(blenderGulp);
 
     // Elixir mix
     elixir(function (mix) {
@@ -33,14 +43,7 @@ blenderGulp.init =  function () {
             .version([blenderGulp.paths.css.public, blenderGulp.paths.js.public])
 
             // BrowserSync
-            .browserSync({
-                files: blenderGulp.paths.browserSync,
-                proxy: process.env.dev,
-                reloadOnRestart: false,
-                notify: false,
-                open: false,
-                xip: true
-            });
+            .browserSync(blenderGulp.browserSync);
     });
 };
 

@@ -31,7 +31,7 @@ $ npm i spatie-custom/blender-gulp#1.0.0 --save-dev
 // Include blender-gulp npm module
 var blenderGulp = require("blender-gulp");
 
-// Define options: which files? Which url for BrowserSync?
+// Which sets to combine for css & js? Which BrowserSync settings?
 blenderGulp.options = {
     files : {
         front : {
@@ -43,11 +43,15 @@ blenderGulp.options = {
             js : ['app.js', 'chart.js']
         }
     },
-    url: '...',
-    dev: '...192.168.10.10.xip.io/'
+    url: 'http://groener.be',
+    browserSync: {
+        proxy: 'http://groener.be.192.168.10.10.xip.io/',
+        xip: false,
+        open: true
+    }
 };
 
-// Initialize
+// Initiate
 blenderGulp.init();
 
 ```
