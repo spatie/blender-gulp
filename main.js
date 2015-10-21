@@ -18,7 +18,7 @@ function initGulp() {
     // Proccess settings
     process.env.module = (gutil.env.back == 1) ? 'back' : 'front';
     process.env.dev = (gutil.env.back == 1) ? config.app.dev + '/blender' : config.app.dev;
-    
+
     /* Elixir main function */
     elixir(function (mix) {
 
