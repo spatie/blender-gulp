@@ -43,17 +43,10 @@ blenderGulp.options = {
             js : ['app.js', 'chart.js']
         }
     },
-<<<<<<< HEAD
-    url: 'https://...',
-    browserSync: {
-        proxy: 'http://....xip.io/',
-=======
     url: '…',
     browserSync: {
         proxy: '….xip.io/',
->>>>>>> 5a3319026b9cb5b0829cc17f986e81b225ea1543
-        xip: false,
-        open: true
+        …
     }
 };
 
