@@ -1,8 +1,6 @@
 var blenderGulp = require("./lib/config");
 
 blenderGulp.init =  function () {
-    var blenderGulp = this;
-
     // Modules
     var elixir = require('laravel-elixir');
     var gutil = require('gulp-util');
