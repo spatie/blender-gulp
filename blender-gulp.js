@@ -1,12 +1,12 @@
 var blenderGulp = require("./lib/config");
 
 blenderGulp.init =  function () {
-    // Modules & their configuration */
+    var blenderGulp = this;
+
+    // Modules
     var elixir = require('laravel-elixir');
     var gutil = require('gulp-util');
     require("./lib/extend");
-
-    var blenderGulp = this;
 
     // Settings
     elixir.config.sourcemaps = false;
@@ -20,9 +20,6 @@ blenderGulp.init =  function () {
 
     // Sync front or back?
     blenderGulp.browserSync.proxy = blenderGulp.browserSync.proxy + ( (gutil.env.back == 1)? blenderGulp.paths.admin : '' );
-
-
-    console.log(blenderGulp);
 
     // Elixir mix
     elixir(function (mix) {
