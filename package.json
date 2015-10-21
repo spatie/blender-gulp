@@ -1,0 +1,29 @@
+{
+  "name": "blender-gulp",
+  "version": "0.0.1",
+  "description": "Blender CMS Gulp settings",
+  "main": "blender-gulp.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/spatie-custom/blender-gulp.git"
+  },
+  "keywords": [
+    "spatie",
+    "blender",
+    "gulp",
+    "javascript"
+  ],
+  "author": "Willem Van Bockstal",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/spatie-custom/blender-gulp/issues"
+  },
+  "homepage": "https://github.com/spatie-custom/blender-gulp",
+  "devDependencies": {
+    "gulp-util": "^3.0.7",
+    "laravel-elixir": "^3.4.1"
+  }
+}
