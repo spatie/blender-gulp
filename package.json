@@ -26,7 +26,7 @@
     "browserify": "^11.0.1",
     "del": "^1.1.1",
     "favicons": "^3.0.2",
-    "gulp": "^3.8.11",
+    "gulp": "^3.9.0",
     "gulp-svgmin": "^1.1.2",
     "gulp-util": "^3.0.3",
     "laravel-elixir": "^3.4.1"
