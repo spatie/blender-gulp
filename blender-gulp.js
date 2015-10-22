@@ -8,6 +8,8 @@ blenderGulp.init =  function () {
 
     // Settings
     elixir.config.sourcemaps = false;
+    elixir.config.js.browserify.options.extensions = ['.jsx'];
+
     process.env.DISABLE_NOTIFIER = blenderGulp.disableNotifier;
     process.env.module = (gutil.env.back == 1) ? 'back' : 'front';
 
