@@ -29,6 +29,6 @@
     "gulp": "^3.8.11",
     "gulp-svgmin": "^1.1.2",
     "gulp-util": "^3.0.3",
-    "laravel-elixir": "^3.0.0"
+    "laravel-elixir": "^3.4.1"
   }
 }
