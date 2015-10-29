@@ -2,6 +2,10 @@
 
 All Notable changes to `blender-gulp` will be documented in this file
 
+## 1.0.4 - 2015-10-29
+### Added
+- `gulp og-image` task
+
 ## 1.0.3 - 2015-10-29
 ### Changed
 - Favicon: og:image tag generation off

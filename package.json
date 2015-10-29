@@ -1,6 +1,6 @@
 {
   "name": "blender-gulp",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "Blender CMS Gulp settings",
   "main": "blender-gulp.js",
   "scripts": {
@@ -22,13 +22,14 @@
     "url": "https://github.com/spatie-custom/blender-gulp/issues"
   },
   "homepage": "https://github.com/spatie-custom/blender-gulp",
-  "dependencies": {
+  "devDependencies": {
     "browserify": "^11.0.1",
     "del": "^1.1.1",
     "favicons": "^3.0.2",
     "gulp": "^3.9.0",
     "gulp-svgmin": "^1.1.2",
     "gulp-util": "^3.0.3",
-    "laravel-elixir": "^3.4.1"
+    "laravel-elixir": "^3.4.1",
+    "pageres": "^3.0.1"
   }
 }
