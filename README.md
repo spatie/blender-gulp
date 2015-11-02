@@ -22,11 +22,6 @@ $ npm i blender-gulp --save-dev
 
 In order to install it via GitHub you must specify this extra repository in `package.json` and specify a version:
 
-```json
-"devDependencies": { "blender-gulp": "spatie-custom/blender-gulp#1.0.0" }
-```
-
-Or you can install the package directly via NPM:
 ``` bash
 $ npm i "spatie-custom/blender-gulp#1.0.0" --save-dev
 ```

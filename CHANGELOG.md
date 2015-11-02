@@ -2,6 +2,10 @@
 
 All Notable changes to `blender-gulp` will be documented in this file
 
+## 1.0.6 - 2015-11-02
+### Changed
+- Hold on with ES6 notation
+
 ## 1.0.5 - 2015-10-22
 ### Changed
 - Moved dependencies from devDependencies (oops again)
