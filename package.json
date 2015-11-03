@@ -1,10 +1,11 @@
 {
   "name": "blender-gulp",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "description": "Blender CMS Gulp settings",
   "main": "blender-gulp.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+      "test:lint": "node_modules/.bin/eslint .",
+      "test": "npm run test:lint"
   },
   "repository": {
     "type": "git",
@@ -31,5 +32,8 @@
     "gulp-util": "^3.0.3",
     "laravel-elixir": "^3.4.1",
     "pageres": "^3.0.1"
+  },
+  "devDependencies": {
+    "eslint": "^1.8.0"
   }
 }

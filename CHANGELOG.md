@@ -2,6 +2,11 @@
 
 All Notable changes to `blender-gulp` will be documented in this file
 
+## 1.0.7 - 2015-11-03
+### Added
+- Sass watch includes node_modules/**/*.css
+- Added test with npm test eslint
+
 ## 1.0.6 - 2015-11-02
 ### Changed
 - Hold on with ES6 notation
