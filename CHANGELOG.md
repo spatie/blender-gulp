@@ -2,6 +2,12 @@
 
 All Notable changes to `blender-gulp` will be documented in this file
 
+## 1.0.9 - 2015-11-04
+### Fixed
+- js syntax
+### Changed
+- `gulp help`
+
 ## 1.0.8 - 2015-11-04
 ### Added
 - Added `gulp lint` for front sass and js
