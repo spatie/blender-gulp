@@ -2,10 +2,14 @@
 
 All Notable changes to `blender-gulp` will be documented in this file
 
+## 1.0.8 - 2015-11-04
+### Added
+- Added `gulp lint` for front sass and js
+
 ## 1.0.7 - 2015-11-03
 ### Added
 - Sass watch includes node_modules/**/*.css
-- Added test with npm test eslint
+- Added eslint with `npm test`
 
 ## 1.0.6 - 2015-11-02
 ### Changed

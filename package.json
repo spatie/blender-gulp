@@ -1,12 +1,11 @@
 {
   "name": "blender-gulp",
-  "version": "1.0.7",
+  "version": "1.0.8",
   "description": "Blender CMS Gulp settings",
   "main": "blender-gulp.js",
   "scripts": {
-      "test:lint": "node_modules/.bin/eslint .",
-      "test": "npm run test:lint",
-      "prepublish" : "npm test"
+    "test:lint": "node_modules/.bin/eslint .",
+    "test": "npm run test:lint"
   },
   "repository": {
     "type": "git",
@@ -29,6 +28,8 @@
     "del": "^1.1.1",
     "favicons": "^3.0.2",
     "gulp": "^3.9.0",
+    "gulp-eslint": "^1.0.0",
+    "gulp-sass-lint": "^1.0.1",
     "gulp-svgmin": "^1.1.2",
     "gulp-util": "^3.0.3",
     "laravel-elixir": "^3.4.1",
