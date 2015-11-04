@@ -5,7 +5,8 @@
   "main": "blender-gulp.js",
   "scripts": {
       "test:lint": "node_modules/.bin/eslint .",
-      "test": "npm run test:lint"
+      "test": "npm run test:lint",
+      "prepublish" : "npm test"
   },
   "repository": {
     "type": "git",
