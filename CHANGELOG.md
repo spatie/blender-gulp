@@ -2,6 +2,10 @@
 
 All Notable changes to `blender-gulp` will be documented in this file
 
+## 1.0.11 - 2015-11-17
+### Added
+- `gulp watch` also watches .jsx files
+
 ## 1.0.10 - 2015-11-04
 ### Changed
 - `gulp lint:es` lints also back js

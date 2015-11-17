@@ -46,6 +46,9 @@ blenderGulp.init =  function () {
     // Watch also .css changes in node_modules
     elixir.Task.find('sass').watch(blenderGulp.paths.npm + '**/*.css')
 
+    // Watch also .jsx changes in resources
+    elixir.Task.find('browserify').watch(blenderGulp.paths.js.resources + '**/*.jsx')
+
 }
 
 module.exports = blenderGulp
