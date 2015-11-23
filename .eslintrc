@@ -15,14 +15,19 @@
         "semi": [
             2,
             "never"
-        ]
+        ],
+        "comma-dangle": [2, "always-multiline"]
+    },
+    "globals": {
+        "$": true
     },
     "ecmaFeatures": {
         "modules": true
     },
     "env": {
         "es6": true,
-        "node": true
+        "node": true,
+        "browser": true
     },
     "extends": "eslint:recommended"
 }
