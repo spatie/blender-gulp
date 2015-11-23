@@ -30,8 +30,10 @@
     "gulp": "^3.9.0",
     "gulp-eslint": "^1.0.0",
     "gulp-sass-lint": "^1.0.1",
+    "gulp-shell": "^0.5.1",
     "gulp-svgmin": "^1.1.2",
     "gulp-util": "^3.0.3",
+    "jscs": "^2.6.0",
     "laravel-elixir": "^3.4.1",
     "pageres": "^3.0.1"
   },
