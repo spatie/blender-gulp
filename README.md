@@ -15,7 +15,7 @@ $ npm install --global gulp
 
 This NPM package is custom built for [Spatie](https://spatie.be) projects and is therefore not registered on NPM.
 
-We assume that you have [Composer](https://getcomposer.org) allready installed for the php code style fixer.
+We assume that you have [Composer](https://getcomposer.org) already installed for the php code style fixer.
 
 We install it via a *custom npm* registry:
 ``` bash
