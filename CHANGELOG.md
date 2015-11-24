@@ -2,6 +2,10 @@
 
 All Notable changes to `blender-gulp` will be documented in this file
 
+## 1.1.0 - 2015-11-24
+### Added
+- cs fixers for js and php
+
 ## 1.0.11 - 2015-11-17
 ### Added
 - `gulp watch` also watches .jsx files
