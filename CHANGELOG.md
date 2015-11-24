@@ -2,6 +2,10 @@
 
 All Notable changes to `blender-gulp` will be documented in this file
 
+## 1.1.2 - 2015-11-24
+### Changed
+- post-install typo
+
 ## 1.1.1 - 2015-11-24
 ### Added
 - post-install composer command
