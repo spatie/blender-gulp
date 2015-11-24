@@ -25,7 +25,7 @@ blenderGulp.init =  function () {
     elixir(function (mix) {
 
         // NPM -> Javascript
-        blenderGulp.options.files[process.env.module].js.map(function (item) {
+        blenderGulp.options.files[process.env.module].js.forEach(function (item) {
             mix.browserify(process.env.module + '/' + item, blenderGulp.paths.js.public + process.env.module + '.' + item)
         })
 
