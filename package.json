@@ -1,11 +1,12 @@
 {
   "name": "blender-gulp",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "Blender CMS Gulp settings",
   "main": "blender-gulp.js",
   "scripts": {
     "test:lint": "node_modules/.bin/eslint .",
-    "test": "npm run test:lint"
+    "test": "npm run test:lint",
+    "post-install" : "composer global require fabpot/php-cs-fixer"
   },
   "repository": {
     "type": "git",
