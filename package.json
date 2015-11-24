@@ -5,8 +5,7 @@
   "main": "blender-gulp.js",
   "scripts": {
     "test:lint": "node_modules/.bin/eslint .",
-    "test": "npm run test:lint",
-    "postinstall" : "composer global require fabpot/php-cs-fixer"
+    "test": "npm run test:lint"
   },
   "repository": {
     "type": "git",
