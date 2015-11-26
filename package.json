@@ -34,8 +34,7 @@
     "gulp-svgmin": "^1.1.2",
     "gulp-util": "^3.0.3",
     "jscs": "^2.6.0",
-    "laravel-elixir": "^3.4.1",
-    "pageres": "^3.0.1"
+    "laravel-elixir": "^3.4.1"
   },
   "devDependencies": {
     "eslint": "^1.8.0"

@@ -2,6 +2,10 @@
 
 All Notable changes to `blender-gulp` will be documented in this file
 
+## 1.1.4 - 2015-11-26
+### Changed
+- removed og-image
+
 ## 1.1.3 - 2015-11-24
 ### Changed
 - removed post install
