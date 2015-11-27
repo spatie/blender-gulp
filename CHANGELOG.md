@@ -2,6 +2,10 @@
 
 All Notable changes to `blender-gulp` will be documented in this file
 
+## 1.1.5 - 2015-11-27
+### Fixed
+- gulp won't break anymore when browserSync isn't set in the config
+
 ## 1.1.4 - 2015-11-26
 ### Changed
 - removed og-image
