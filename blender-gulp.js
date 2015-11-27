@@ -14,7 +14,7 @@ blenderGulp.init =  function () {
     process.env.module = (gutil.env.back == 1) ? 'back' : 'front'
 
     // Map Browsersync custom options to the configuration
-    Object.keys(blenderGulp.options.browserSync).forEach(function (key) {
+    Object.keys(blenderGulp.options.browserSync || {}).forEach(function (key) {
         blenderGulp.browserSync[key] = blenderGulp.options.browserSync[key]
     })
 
