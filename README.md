@@ -32,6 +32,8 @@ $ npm i "spatie-custom/blender-gulp#1.0.0" --save-dev
 ## Sample gulpfile.js
 
 ``` js
+'use strict';
+
 // Include blender-gulp npm module
 const blenderGulp = require("blender-gulp");
 
