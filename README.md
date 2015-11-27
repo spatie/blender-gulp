@@ -33,24 +33,24 @@ $ npm i "spatie-custom/blender-gulp#1.0.0" --save-dev
 
 ``` js
 // Include blender-gulp npm module
-var blenderGulp = require("blender-gulp");
+const blenderGulp = require("blender-gulp");
 
 // Which sets to combine for css & js? Which BrowserSync settings?
 blenderGulp.options = {
     files : {
         front : {
             sass : 'front/front.scss',
-            js : ['app.js']
+            js : ['app.js'],
         },
         back : {
             sass : 'back/back.scss',
-            js : ['app.js', 'chart.js']
+            js : ['app.js', 'chart.js'],
         }
     },
-    url: '…',
+    url: '...',
     browserSync: {
         proxy: '….xip.io/',
-        …
+        // ...
     }
 };
 
