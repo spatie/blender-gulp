@@ -2,6 +2,10 @@
 
 All Notable changes to `blender-gulp` will be documented in this file
 
+## 1.1.6 - 2015-11-27
+### Fixed
+- gulp watch won't break anymore when there are no css or js files
+
 ## 1.1.5 - 2015-11-27
 ### Fixed
 - gulp won't break anymore when browserSync isn't set in the config
@@ -76,4 +80,3 @@ All Notable changes to `blender-gulp` will be documented in this file
 ## 1.0.0 - 2015-10-21
 ### Added
 - Initial release
-
