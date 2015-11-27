@@ -46,22 +46,19 @@ blenderGulp.init =  function() {
             .browserSync(blenderGulp.browserSync);
     });
 
-    // Add change watchers for node_modules
-    (function() {
+    // Add sass change watchers for node_modules
+    if (elixir.Task.find('sass')) {
+        elixir.Task.find('sass').watch(blenderGulp.paths.npm + '**/*.css')
+    } else {
+        elixir.Log.message('Not registering extra sass watchers because the task isn\'t available')
+    }
 
-        if (var sass = elixir.Task.find('sass')) {
-            sass.watch(blenderGulp.paths.npm + '**/*.css')
-        } else {
-            elixir.Log.message('Not registering extra sass watchers because the task isn\'t available')
-        }
-
-        if (var browserify = elixir.Task.find('browserify')) {
-            elixir.Task.find('browserify').watch(blenderGulp.paths.js.resources + '**/*.jsx')
-        } else {
-            elixir.Log.message('Not registering extra browserify watchers because the task isn\'t available')
-        }
-
-    })()
+    // Add browserify change watchers for node_modules
+    if (elixir.Task.find('browserify')) {
+        elixir.Task.find('browserify').watch(blenderGulp.paths.js.resources + '**/*.jsx')
+    } else {
+        elixir.Log.message('Not registering extra browserify watchers because the task isn\'t available')
+    }
 
 };
 
