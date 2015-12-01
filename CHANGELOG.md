@@ -2,6 +2,10 @@
 
 All Notable changes to `blender-gulp` will be documented in this file
 
+## 1.1.7 - 2015-12-01
+### Changed
+- bumped elixir to v4
+
 ## 1.1.6 - 2015-11-27
 ### Fixed
 - gulp watch won't break anymore when there are no css or js files
