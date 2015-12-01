@@ -1,6 +1,6 @@
 {
   "name": "blender-gulp",
-  "version": "1.1.6",
+  "version": "1.1.7",
   "description": "Blender CMS Gulp settings",
   "main": "blender-gulp.js",
   "scripts": {
@@ -34,7 +34,7 @@
     "gulp-svgmin": "^1.1.2",
     "gulp-util": "^3.0.3",
     "jscs": "^2.6.0",
-    "laravel-elixir": "^3.4.1"
+    "laravel-elixir": "^4.0.0"
   },
   "devDependencies": {
     "eslint": "^1.8.0"
