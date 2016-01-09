@@ -14,7 +14,7 @@ let config = {
         'url': 'https://blender.spatie.be',
     },
     css: {
-        src: 'resources/assets/css',
+        src: 'resources/assets/sass',
         dest: 'public/css',
         sassInclude: ['node_modules'],
     },

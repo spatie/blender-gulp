@@ -12,7 +12,7 @@ gulp.task('css:sass', () => {
         .pipe(sass({
             includePaths: config.css.sassInclude
         }))
-        .pipe(gulp.dest(config.css.src));
+        .pipe(gulp.dest(config.css.dest));
 });
 
 gulp.task('css:minify', () => {
