@@ -11,12 +11,16 @@ require('./tasks/javascript');
 require('./tasks/revision');
 require('./tasks/svg');
 
-gulp.task('default', (callback) => {
-    runSequence(['js', 'css'], 'revision', callback);
+gulp.task('default', () => {
+    runSequence(['js', 'css'], 'revision');
 });
 
-gulp.task('watch', () => {
-    config.watching = true;
+gulp.task('watch', (callback) => {
+    config.watch = true;
 
-    return gulp.start('default');
+    if (config.production) {
+        throw new Error('You can\'t watch in production mode.');
+    }
+
+    return gulp.start(['js', 'css', 'revision']);
 });

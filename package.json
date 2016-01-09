@@ -32,6 +32,7 @@
     "favicons": "^4.4.5",
     "gulp": "^3.9.0",
     "gulp-cssnano": "^2.1.0",
+    "gulp-debounced-watch": "^1.0.4",
     "gulp-plumber": "^1.0.1",
     "gulp-rev": "^6.0.1",
     "gulp-sass": "^2.1.1",
