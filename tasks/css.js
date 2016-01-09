@@ -24,6 +24,7 @@ gulp.task('css:minify', () => {
 gulp.task('css', (callback) => {
     if (config.production) {
         runSequence('css:sass', 'css:minify', callback);
+        return;
     }
     
     runSequence('css:sass', callback);

@@ -3,7 +3,7 @@
 const _merge = require('lodash.merge');
 const config = require('./index');
 
-let defaults = {
+module.exports = {
     context: `${process.cwd()}/${config.js.src}`,
     output: {
         filename: '[name].js'
@@ -19,12 +19,5 @@ let defaults = {
     },
     resolve: {
         extensions: ['', '.js', '.jsx'],
-    },
-    extend(options) {
-        defaults = _merge(defaults, options);
-
-        return defaults;
     }
 };
-
-module.exports = defaults;

@@ -9,7 +9,7 @@ const webpack = require('webpack-stream');
 const config = require('../config');
 
 gulp.task('js:bundle', (callback) => {
-    
+
     if (config.watching) {
         config.webpack.watch = true;
     }
@@ -29,6 +29,7 @@ gulp.task('js:minify', () => {
 gulp.task('js', (callback) => {
     if (config.production) {
         runSequence('js:bundle', 'js:minify', callback);
+        return;
     }
     
     runSequence('js:bundle', callback);
