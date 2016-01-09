@@ -22,6 +22,8 @@ let defaults = {
     },
     extend(options) {
         defaults = _merge(defaults, options);
+
+        return defaults;
     }
 };
 

@@ -21,6 +21,7 @@ let config = {
     js: {
         src: 'resources/assets/js',
         dest: 'public/js',
+        webpack: null,
     },
     svg: {
         src: 'resources/assets/svg',
@@ -48,9 +49,10 @@ let config = {
         open: false,
         xip: false,
     },
-    webpack: null,
     extend(options) {
         config = _merge(config, options);
+
+        return config;
     }
 };
 
