@@ -1,10 +1,11 @@
 'use strict';
 
 const _merge = require('lodash.merge');
+const gutil = require('gulp-util');
 
 let config = {
     watching: false,
-    production: false,
+    production: gutil.env.production,
     app: {
         description: 'Blender CMS',
         developer: 'spatie.be',
@@ -18,8 +19,8 @@ let config = {
         sassInclude: ['node_modules'],
     },
     js: {
-        resources: 'resources/assets/js',
-        public: 'public/js',
+        src: 'resources/assets/js',
+        dest: 'public/js',
     },
     svg: {
         src: 'resources/assets/svg',

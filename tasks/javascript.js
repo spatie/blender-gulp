@@ -9,6 +9,7 @@ const webpack = require('webpack-stream');
 const config = require('../config');
 
 gulp.task('js:bundle', (callback) => {
+    
     if (config.watching) {
         config.webpack.watch = true;
     }

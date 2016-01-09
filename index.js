@@ -1,16 +1,15 @@
 'use strict';
 
 const gulp = require('gulp');
-const gutil = require('gulp-util');
 const runSequence = require('run-sequence');
 
 const config = require('./config');
 
-config.production = gutil.env.production;
-
-require('./tasks/javascript');
 require('./tasks/css');
+require('./tasks/favicon');
+require('./tasks/javascript');
 require('./tasks/revision');
+require('./tasks/svg');
 
 gulp.task('default', (callback) => {
     runSequence(['js', 'css'], 'revision', callback);
