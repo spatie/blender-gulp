@@ -8,7 +8,7 @@ const config = require('../config');
 
 gulp.task('revision', () => {
 
-    del(config.paths.build, () => {
+    del(config.paths.build).then(() => {
         return gulp.src([`${config.js.dest}/**/*`, `${config.css.dest}/**/*`], { base: 'public' })
             .pipe(revision())
             .pipe(gulp.dest(config.paths.build))

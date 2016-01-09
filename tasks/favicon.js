@@ -8,7 +8,7 @@ const config = require('../config');
 
 gulp.task('favicon', () => {
 
-    del(config.favicons.view, () => {
+    del(config.favicons.view).then(() => {
         favicons({
             files: {
                 src: config.favicons.src,
