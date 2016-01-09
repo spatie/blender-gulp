@@ -1,3 +1,5 @@
+'use strict';
+
 const gulp = require('gulp');
 const minify = require('gulp-cssnano');
 const runSequence = require('run-sequence');
@@ -6,17 +8,17 @@ const sass = require('gulp-sass');
 const config = require('../config');
 
 gulp.task('css:sass', () => {
-    return gulp.src(`${config.paths.css.src}/**/*.scss`)
+    return gulp.src(`${config.css.src}/**/*.scss`)
         .pipe(sass({
             includePaths: config.css.sassInclude
         }))
-        .pipe(gulp.dest(config.paths.css.src));
+        .pipe(gulp.dest(config.css.src));
 });
 
 gulp.task('css:minify', () => {
-    return gulp.src(`${config.paths.css.dest}/**/*.scss`)
+    return gulp.src(`${config.css.dest}/**/*.scss`)
         .pipe(minify())
-        .pipe(gulp.dest(config.paths.css.dest));
+        .pipe(gulp.dest(config.css.dest));
 });
 
 gulp.task('css', (callback) => {

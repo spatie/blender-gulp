@@ -1,8 +1,10 @@
+'use strict';
+
 const _merge = require('lodash.merge');
 const config = require('./index');
 
 let defaults = {
-    context: `${process.cwd()}/${config.paths.js.src}`,
+    context: `${process.cwd()}/${config.js.src}`,
     output: {
         filename: '[name].js'
     },

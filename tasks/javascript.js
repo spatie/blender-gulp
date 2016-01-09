@@ -1,3 +1,5 @@
+'use strict';
+
 const gulp = require('gulp');
 const plumber = require('gulp-plumber');
 const runSequence = require('run-sequence');
@@ -13,14 +15,14 @@ gulp.task('js:bundle', (callback) => {
 
     return gulp.src('')
         .pipe(plumber())
-        .pipe(webpack(config.webpack))
-        .pipe(gulp.dest('public/js'));
+        .pipe(webpack(config.js.webpack))
+        .pipe(gulp.dest(config.js.dest));
 });
 
 gulp.task('js:minify', () => {
-    return gulp.src('public/js/**/*')
+    return gulp.src(`${config.js.dest}/**/*`)
         .pipe(uglify())
-        .pipe(gulp.dest('public/js'))
+        .pipe(gulp.dest(config.js.dest))
 });
 
 gulp.task('js', (callback) => {

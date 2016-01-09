@@ -1,3 +1,5 @@
+'use strict';
+
 const del = require('del');
 const favicons = require('favicons');
 const gulp = require('gulp');
@@ -6,18 +8,18 @@ const config = require('../config');
 
 gulp.task('favicon', () => {
 
-    del(config.paths.favicons.view);
+    del(config.favicons.view);
 
     favicons({
         files: {
-            src: config.paths.favicons.src,
-            dest: config.paths.favicons.dest,
-            html: config.paths.favicons.view,
+            src: config.favicons.src,
+            dest: config.favicons.dest,
+            html: config.favicons.view,
             iconsPath: '/',
-            androidManifest: config.paths.favicons.dest,
-            browserConfig: config.paths.favicons.dest,
-            firefoxManifest: config.paths.favicons.dest,
-            yandexManifest: config.paths.favicons.dest,
+            androidManifest: config.favicons.dest,
+            browserConfig: config.favicons.dest,
+            firefoxManifest: config.favicons.dest,
+            yandexManifest: config.favicons.dest,
         },
         icons: {
             android: true,
