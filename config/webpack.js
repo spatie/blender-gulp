@@ -5,29 +5,43 @@ const config = require('./index');
 const path = require('path');
 
 module.exports = {
-    context: path.resolve(process.cwd(), 'resources/assets'),
-    output: {
-        path: path.resolve(process.cwd(), 'public'),
-        filename: '[name]',
+    js: {
+        context: path.resolve(process.cwd(), 'resources/assets'),
+        output: {
+            path: path.resolve(process.cwd(), 'public'),
+            filename: '[name]',
+        },
+        module: {
+            loaders: [
+                {
+                    test: /.jsx?$/,
+                    loader: 'babel',
+                    exclude: /node_modules/,
+                },
+            ],
+        },
+        resolve: {
+            extensions: ['', '.js', '.jsx'],
+        },
+        plugins: [],
     },
-    module: {
-        loaders: [
-            {
-                test: /.jsx?$/,
-                loader: 'babel',
-                exclude: /node_modules/,
-            },
-            {
-                test: /\.scss$/,
-                loaders: ['style', 'css', 'sass'],
-            }
-        ],
+    css: {
+        context: path.resolve(process.cwd(), 'resources/assets'),
+        output: {
+            path: path.resolve(process.cwd(), 'public'),
+            filename: '[name]',
+        },
+        module: {
+            loaders: [
+                {
+                    test: /\.scss$/,
+                    loaders: ['style', 'css', 'sass'],
+                }
+            ],
+        },
+        sassLoader: {
+            includePaths: [path.resolve(process.cwd(), 'node_modules')],
+        },
+        plugins: [],
     },
-    resolve: {
-        extensions: ['', '.js', '.jsx'],
-    },
-    sassLoader: {
-        includePaths: [path.resolve(process.cwd(), 'node_modules')],
-    },
-    plugins: [],
 };
