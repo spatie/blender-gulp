@@ -3,7 +3,7 @@
 const _merge = require('lodash.merge');
 const config = require('./index');
 const path = require('path');
-const logTimestamp = require('./lib/log-timestamp');
+const logTimestamp = require('../lib/log-timestamp');
 
 module.exports = {
     js: {
