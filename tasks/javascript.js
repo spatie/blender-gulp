@@ -1,6 +1,7 @@
 'use strict';
 
 const gulp = require('gulp');
+const gutil = require('gulp-util');
 const handleError = require('../lib/handle-error');
 const runSequence = require('run-sequence');
 const uglify = require('gulp-uglify');
@@ -11,7 +12,7 @@ const config = require('../config');
 gulp.task('js:bundle', (callback) => {
 
     if (! config.js.webpack) {
-        console.log('No webpack config provided');
+        gutil.log('No webpack config provided');
         return;
     }
 
