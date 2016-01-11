@@ -3,6 +3,7 @@
 const _merge = require('lodash.merge');
 const config = require('./index');
 const path = require('path');
+const logTimestamp = require('./lib/log-timestamp');
 
 module.exports = {
     js: {
@@ -23,7 +24,7 @@ module.exports = {
         resolve: {
             extensions: ['', '.js', '.jsx'],
         },
-        plugins: [],
+        plugins: [logTimestamp('Compiling javascript')],
     },
     css: {
         context: path.resolve(process.cwd(), 'resources/assets'),
@@ -45,6 +46,6 @@ module.exports = {
         sassLoader: {
             includePaths: [path.resolve(process.cwd(), 'node_modules')],
         },
-        plugins: [],
+        plugins: [logTimestamp('Compiling sass')],
     },
 };
