@@ -33,6 +33,7 @@
     "gulp": "^3.9.0",
     "gulp-rev": "^6.0.1",
     "gulp-svgmin": "^1.2.0",
+    "gulp-util": "^3.0.7",
     "lodash.merge": "^3.3.2",
     "webpack": "^1.12.10"
   },

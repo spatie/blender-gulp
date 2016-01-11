@@ -1,8 +1,10 @@
 'use strict';
 
 const _merge = require('lodash.merge');
+const gutil = require('gulp-util');
 
 let config = {
+    production: gutil.env.production,
     app: {
         name: 'Blender',
         'url': 'https://blender.spatie.be',
