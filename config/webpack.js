@@ -4,9 +4,10 @@ const _merge = require('lodash.merge');
 const config = require('./index');
 
 module.exports = {
-    context: `${process.cwd()}/${config.js.src}`,
+    context: path.resolve(process.cwd(), 'resources/assets'),
     output: {
-        filename: '[name].js'
+        path: path.resolve(process.cwd(), 'public'),
+        filename: '[name]',
     },
     module: {
         loaders: [
@@ -14,10 +15,18 @@ module.exports = {
                 test: /.jsx?$/,
                 loader: 'babel',
                 exclude: /node_modules/,
+            },
+            {
+                test: /\.scss$/,
+                loaders: ['style', 'css', 'sass'],
             }
         ],
-    },
+    },
     resolve: {
         extensions: ['', '.js', '.jsx'],
-    }
+    },
+    sassLoader: {
+        includePaths: [path.resolve(process.cwd(), 'node_modules')],
+    },
+    plugins: [],
 };
