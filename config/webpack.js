@@ -32,6 +32,9 @@ module.exports = {
             filename: '[name]',
         },
         module: {
+            hot: {
+                accept: true
+            },
             loaders: [
                 {
                     test: /\.scss$/,
