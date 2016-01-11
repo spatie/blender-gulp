@@ -1,31 +1,31 @@
 'use strict';
 
 const del = require('del');
-const favicons = require('favicons');
+const favicon = require('favicons');
 const gulp = require('gulp');
 
 const config = require('../config');
 
 gulp.task('favicon', () => {
 
-    del(config.favicons.view).then(() => {
-        favicons({
+    del(config.favicon.view).then(() => {
+        favicon({
             files: {
-                src: config.favicons.src,
-                dest: config.favicons.dest,
-                html: config.favicons.view,
+                src: config.favicon.src,
+                dest: config.favicon.dest,
+                html: config.favicon.view,
                 iconsPath: '/',
-                androidManifest: config.favicons.dest,
-                browserConfig: config.favicons.dest,
-                firefoxManifest: config.favicons.dest,
-                yandexManifest: config.favicons.dest,
+                androidManifest: config.favicon.dest,
+                browserConfig: config.favicon.dest,
+                firefoxManifest: config.favicon.dest,
+                yandexManifest: config.favicon.dest,
             },
             icons: {
                 android: true,
                 appleIcon: true,
                 appleStartup: false,
                 coast: false,
-                favicons: true,
+                favicon: true,
                 firefox: true,
                 opengraph: false,
                 windows: true,

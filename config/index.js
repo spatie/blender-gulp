@@ -4,14 +4,14 @@ const _merge = require('lodash.merge');
 const gutil = require('gulp-util');
 
 let config = {
-    watching: false,
+    watch: false,
     production: gutil.env.production,
     app: {
+        name: 'Blender',
+        'url': 'https://blender.spatie.be',
         description: 'Blender CMS',
         developer: 'spatie.be',
         developerUrl: 'https://spatie.be',
-        name: 'Blender',
-        'url': 'https://blender.spatie.be',
     },
     css: {
         src: 'resources/assets/sass',
@@ -23,11 +23,14 @@ let config = {
         dest: 'public/js',
         webpack: null,
     },
+    rev: {
+        dest: 'public',
+    },
     svg: {
         src: 'resources/assets/svg',
         dest: 'public/images/svg',
     },
-    favicons: {
+    favicon: {
         src: 'resources/assets/favicon/500x500.png',
         dest: 'public',
         view: 'resources/views/front/layout/_partials/favicons.blade.php',
