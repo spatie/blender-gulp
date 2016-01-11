@@ -2,6 +2,7 @@
 
 const _merge = require('lodash.merge');
 const config = require('./index');
+const path = require('path');
 
 module.exports = {
     context: path.resolve(process.cwd(), 'resources/assets'),
