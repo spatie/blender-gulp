@@ -5,12 +5,11 @@ require('dotenv').load();
 const path = require('path');
 const webpack = require('webpack');
 
-const config = require('./index');
-
+const production = process.env.NODE_ENV === 'production';
 const devServerPort = process.env.WEBPACK_PORT || 3000;
 const devServerProxy = process.env.WEBPACK_PROXY;
 
-const webpackConfig = {
+const config = {
     context: path.resolve(process.cwd(), 'resources/assets'),
     output: {
         path: path.resolve(process.cwd(), 'public'),
@@ -49,8 +48,8 @@ const webpackConfig = {
     },
 };
 
-if (config.production) {
-    webpackConfig.plugins.push(new webpack.optimize.UglifyJsPlugin({
+if (production) {
+    config.plugins.push(new webpack.optimize.UglifyJsPlugin({
             compress: {
                 warnings: false,
             },

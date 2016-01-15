@@ -15,7 +15,14 @@ gulp.task('webpack', (callback) => {
 
     const options = config.production ? ['-p'] : [];
 
-    return childProcess.spawn('webpack', options, { stdio: 'inherit' });
+    childProcess.spawn(
+        'webpack',
+        options,
+        {
+            stdio: 'inherit',
+            env: process.env,
+        }
+    );
 });
 
 const runWebpackDevServer = () => {
@@ -26,6 +33,9 @@ const runWebpackDevServer = () => {
             '--hot',
             '--no-info',
         ],
-        { stdio: 'inherit' }
+        {
+            stdio: 'inherit',
+            env: process.env,
+        }
     );
 };
