@@ -57,4 +57,4 @@ if (production) {
     );
 }
 
-module.exports = webpackConfig;
+module.exports = config;
