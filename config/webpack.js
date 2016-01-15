@@ -3,13 +3,14 @@
 require('dotenv').load();
 
 const path = require('path');
+const webpack = require('webpack');
 
 const config = require('./index');
 
 const devServerPort = process.env.WEBPACK_PORT || 3000;
 const devServerProxy = process.env.WEBPACK_PROXY;
 
-module.exports = {
+const webpackConfig = {
     context: path.resolve(process.cwd(), 'resources/assets'),
     output: {
         path: path.resolve(process.cwd(), 'public'),
@@ -34,7 +35,6 @@ module.exports = {
     sassLoader: {
         includePaths: [path.resolve(process.cwd(), 'node_modules')],
     },
-
     devServer: {
         port: devServerPort,
         contentBase: 'public',
@@ -48,3 +48,14 @@ module.exports = {
         },
     },
 };
+
+if (config.production) {
+    webpackConfig.plugins.push(new webpack.optimize.UglifyJsPlugin({
+            compress: {
+                warnings: false,
+            },
+        })
+    );
+}
+
+module.exports = webpackConfig;
