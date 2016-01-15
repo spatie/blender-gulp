@@ -21,9 +21,5 @@ module.exports = {
         dest: 'public',
         view: 'resources/views/front/layout/_partials/favicons.blade.php',
     },
-    webpack: {
-        configuration: null,
-        port: 3000,
-        proxy: '',
-    }
+    webpack: null,
 };

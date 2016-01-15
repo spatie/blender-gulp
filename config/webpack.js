@@ -1,16 +1,20 @@
 'use strict';
 
-const path = require('path');
-const logTimestamp = require('../lib/log-timestamp');
+require('dotenv').load();
 
-const config = require('./config');
+const path = require('path');
+
+const config = require('./index');
+
+const devServerPort = process.env.WEBPACK_PORT || 3000;
+const devServerProxy = process.env.WEBPACK_PROXY;
 
 module.exports = {
     context: path.resolve(process.cwd(), 'resources/assets'),
     output: {
         path: path.resolve(process.cwd(), 'public'),
         filename: '[name]',
-        publicPath: `http://localhost:${config.webpack.port}/`,
+        publicPath: `http://localhost:${devServerPort}/`,
     },
     module: {
         hot: {
@@ -26,16 +30,17 @@ module.exports = {
     resolve: {
         extensions: ['', '.js', '.jsx', '.css', '.scss'],
     },
-    plugins: [logTimestamp('Compiling...')],
+    plugins: [],
     sassLoader: {
         includePaths: [path.resolve(process.cwd(), 'node_modules')],
     },
+
     devServer: {
-        port: config.webpack.port,
+        port: devServerPort,
         contentBase: 'public',
         proxy: {
             '*': {
-                target: config.webpack.proxy,
+                target: devServerProxy,
                 changeOrigin: true,
                 autoRewrite: true,
                 xfwd: true,
