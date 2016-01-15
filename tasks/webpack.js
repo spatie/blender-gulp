@@ -3,6 +3,15 @@
 const childProcess = require('child_process');
 const gulp = require('gulp');
 
+const config = require('../config');
+
 gulp.task('webpack', (callback) => {
-    childProcess.spawn('webpack', [], { stdio: 'inherit' });
+
+    const options = [];
+
+    if (config.production) {
+        options[] = '-p';
+    }
+
+    childProcess.spawn('webpack', options, { stdio: 'inherit' });
 });

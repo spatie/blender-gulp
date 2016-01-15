@@ -1,6 +1,7 @@
 'use strict';
 
 module.exports = {
+    production: false,
     app: {
         name: 'Blender',
         'url': 'https://blender.spatie.be',
