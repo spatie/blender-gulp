@@ -5,23 +5,27 @@ const gulp = require('gulp');
 const webpack = require('webpack');
 
 const config = require('../config');
-const webpackConfig = require('../config/webpack');
 
 gulp.task('webpack', (callback) => {
 
-    const options = [];
-
-    if (config.production) {
-        options.push('-p');
-
-        webpackConfig.plugins.push([
-            new webpack.optimize.UglifyJsPlugin({
-                compress: {
-                    warnings: false
-                }
-            })
-        ]);
+    if (config.watch) {
+        runWebpackDevServer();
+        return;
     }
 
-    childProcess.spawn('webpack', options, { stdio: 'inherit' });
+    const options = config.production ? ['-p'] : [];
+
+    return childProcess.spawn('webpack', options, { stdio: 'inherit' });
 });
+
+const runWebpackDevServer = () => {
+    childProcess.spawn(
+        'webpack-dev-server',
+        [
+            '--inline',
+            '--hot',
+            '--no-info',
+        ],
+        { stdio: 'inherit' }
+    );
+};

@@ -1,7 +1,10 @@
 'use strict';
 
+const gutil = require('gulp-util');
+
 module.exports = {
-    production: false,
+    production: gutil.env.production,
+    watch: gutil.env.watch,
     app: {
         name: 'Blender',
         'url': 'https://blender.spatie.be',

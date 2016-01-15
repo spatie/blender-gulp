@@ -2,7 +2,13 @@
 
 const gulp = require('gulp');
 
+const config = require('../config');
+
 gulp.task('default', (callback) => {
 
-    return gulp.start(['webpack', 'svg']);
+    if (config.production) {
+        runSequence(['webpack', 'svg'], 'revision', callback);
+    }
+
+    runSequence(['webpack', 'svg'], callback);
 });
