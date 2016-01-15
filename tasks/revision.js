@@ -7,11 +7,12 @@ const revision = require('gulp-rev');
 const config = require('../config');
 
 gulp.task('revision', () => {
-    del(config.paths.build).then(() => {
-        gulp.src([`${config.js.dest}/**/*`, `${config.css.dest}/**/*`], { base: 'public' })
+    
+    const files = config.rev.files.map(file => `${config.rev.base}/${file}`);
+
+    del(config.rev.files).then(() => {
+        gulp.src(files, { base: config.rev.base })
             .pipe(revision())
-            .pipe(gulp.dest(config.paths.build))
-            .pipe(revision.manifest())
-            .pipe(gulp.dest(config.paths.build));
+            .pipe(gulp.dest(config.rev.base));
     });
 });

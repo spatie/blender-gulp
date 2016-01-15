@@ -1,10 +1,6 @@
 'use strict';
 
-const _merge = require('lodash.merge');
-const gutil = require('gulp-util');
-
-let config = {
-    production: gutil.env.production,
+module.exports = {
     app: {
         name: 'Blender',
         'url': 'https://blender.spatie.be',
@@ -13,7 +9,8 @@ let config = {
         developerUrl: 'https://spatie.be',
     },
     rev: {
-        dest: 'public',
+        base: 'public',
+        files: ['js/**/*', 'css/**/*']
     },
     svg: {
         src: 'resources/assets/svg',
@@ -24,17 +21,9 @@ let config = {
         dest: 'public',
         view: 'resources/views/front/layout/_partials/favicons.blade.php',
     },
-    paths: {
-        build: 'public/build',
-        admin: '/blender',
-        fonts: 'public/fonts',
-        npm: 'node_modules',
-    },
-    extend(options) {
-        config = _merge(config, options);
-
-        return config;
+    webpack: {
+        configuration: null,
+        port: 3000,
+        proxy: '',
     }
 };
-
-module.exports = config;

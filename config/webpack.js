@@ -1,51 +1,45 @@
 'use strict';
 
-const _merge = require('lodash.merge');
-const config = require('./index');
 const path = require('path');
 const logTimestamp = require('../lib/log-timestamp');
 
+const config = require('./config');
+
 module.exports = {
-    js: {
-        context: path.resolve(process.cwd(), 'resources/assets'),
-        output: {
-            path: path.resolve(process.cwd(), 'public'),
-            filename: '[name]',
-        },
-        module: {
-            loaders: [
-                {
-                    test: /.jsx?$/,
-                    loader: 'babel',
-                    exclude: /node_modules/,
-                },
-            ],
-        },
-        resolve: {
-            extensions: ['', '.js', '.jsx'],
-        },
-        plugins: [logTimestamp('Compiling javascript')],
+    context: path.resolve(process.cwd(), 'resources/assets'),
+    output: {
+        path: path.resolve(process.cwd(), 'public'),
+        filename: '[name]',
+        publicPath: `http://localhost:${config.webpack.port}/`,
     },
-    css: {
-        context: path.resolve(process.cwd(), 'resources/assets'),
-        output: {
-            path: path.resolve(process.cwd(), 'public'),
-            filename: '[name]',
+    module: {
+        hot: {
+            accept: true
         },
-        module: {
-            hot: {
-                accept: true
+        loaders: [
+            {
+                test: /\.scss$/,
+                loaders: ['style', 'css', 'sass'],
             },
-            loaders: [
-                {
-                    test: /\.scss$/,
-                    loaders: ['style', 'css', 'sass'],
-                }
-            ],
+        ],
+    },
+    resolve: {
+        extensions: ['', '.js', '.jsx', '.css', '.scss'],
+    },
+    plugins: [logTimestamp('Compiling...')],
+    sassLoader: {
+        includePaths: [path.resolve(process.cwd(), 'node_modules')],
+    },
+    devServer: {
+        port: config.webpack.port,
+        contentBase: 'public',
+        proxy: {
+            '*': {
+                target: config.webpack.proxy,
+                changeOrigin: true,
+                autoRewrite: true,
+                xfwd: true,
+            },
         },
-        sassLoader: {
-            includePaths: [path.resolve(process.cwd(), 'node_modules')],
-        },
-        plugins: [logTimestamp('Compiling sass')],
     },
 };
