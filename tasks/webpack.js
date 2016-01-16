@@ -24,7 +24,7 @@ const runWebpackDevServer = () => {
     ];
 
     if (! config.verbose) {
-        options.push('--no-info');
+        options.push('--quiet');
     }
 
     childProcess.spawn('webpack-dev-server', options, { stdio: 'inherit', env: process.env } );
