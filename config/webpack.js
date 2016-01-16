@@ -49,12 +49,18 @@ const config = {
 };
 
 if (production) {
+
+    config.plugins.push(new webpack.optimize.OccurenceOrderPlugin());
+
     config.plugins.push(new webpack.optimize.UglifyJsPlugin({
-            compress: {
-                warnings: false,
-            },
-        })
-    );
+        compress : {
+            warnings: false,
+            screw_ie8 : true,
+        },
+        mangle : {
+            screw_ie8 : true,
+        },
+    }));
 }
 
 module.exports = config;

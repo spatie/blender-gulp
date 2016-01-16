@@ -13,29 +13,19 @@ gulp.task('webpack', (callback) => {
         return;
     }
 
-    const options = config.production ? ['-p'] : [];
-
-    childProcess.spawn(
-        'webpack',
-        options,
-        {
-            stdio: 'inherit',
-            env: process.env,
-        }
-    );
+    childProcess.spawn('webpack', [], { stdio: 'inherit', env: process.env });
 });
 
 const runWebpackDevServer = () => {
-    childProcess.spawn(
-        'webpack-dev-server',
-        [
-            '--inline',
-            '--hot',
-            '--no-info',
-        ],
-        {
-            stdio: 'inherit',
-            env: process.env,
-        }
-    );
+
+    const options = [
+        '--inline',
+        '--hot',
+    ];
+
+    if (! config.verbose) {
+        options.push('--no-info');
+    }
+
+    childProcess.spawn('webpack-dev-server', options, { stdio: 'inherit', env: process.env } );
 };
