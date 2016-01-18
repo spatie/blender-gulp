@@ -35,7 +35,7 @@ module.exports = (PRODUCTION, MODULE) => {
             ],
         },
         plugins: [
-            new CleanWebpackPlugin('public/assets', {
+            new CleanWebpackPlugin(`public/assets/${MODULE}`, {
                 root: process.cwd(),
                 verbose: false,
             }),
