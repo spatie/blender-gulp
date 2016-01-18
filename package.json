@@ -24,8 +24,10 @@
   },
   "homepage": "https://github.com/spatie-custom/blender-gulp",
   "dependencies": {
+    "clean-webpack-plugin": "^0.1.6",
     "css-loader": "^0.14.5",
     "del": "^2.2.0",
+    "extract-text-webpack-plugin": "^1.0.1",
     "favicons": "^4.4.5",
     "gulp": "^3.9.0",
     "gulp-rev": "^6.0.1",
