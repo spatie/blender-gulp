@@ -6,14 +6,16 @@ const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const path = require('path');
 const webpack = require('webpack');
 
-module.exports = (PRODUCTION, MODULE) => {
+const production = process.env.NODE_ENV === 'production';
+
+const configure = (module) => {
 
     const config = {
         context: path.resolve(process.cwd(), 'resources/assets'),
         output: {
             path: path.resolve(process.cwd(), 'public/assets'),
-            filename: `${MODULE}/[name].js`,
-            chunkFilename: `${MODULE}/[name].js`,
+            filename: `${module}/[name].js`,
+            chunkFilename: `${module}/[name].js`,
             publicPath: '/assets/',
         },
         module: {
@@ -35,11 +37,11 @@ module.exports = (PRODUCTION, MODULE) => {
             ],
         },
         plugins: [
-            new CleanWebpackPlugin(`public/assets/${MODULE}`, {
+            new CleanWebpackPlugin(`public/assets/${module}`, {
                 root: process.cwd(),
                 verbose: false,
             }),
-            new ExtractTextPlugin(`${MODULE}-site`, `${MODULE}/site.css`, { disable: !PRODUCTION }),
+            new ExtractTextPlugin(`${module}-site`, `${module}/site.css`, { disable: !production }),
             function() {
                 this.plugin('watch-run', function(watching, callback) {
                     console.log('Begin compile at ' + new Date());
@@ -54,9 +56,10 @@ module.exports = (PRODUCTION, MODULE) => {
             return [ autoprefixer ];
         },
         resolve: { extensions: ['', '.js', '.jsx', '.css', '.scss'], },
+
     };
 
-    if (PRODUCTION) {
+    if (production) {
         config.plugins = config.plugins.concat([
             new webpack.optimize.OccurenceOrderPlugin(),
             new webpack.optimize.UglifyJsPlugin({
@@ -71,5 +74,31 @@ module.exports = (PRODUCTION, MODULE) => {
         ]);
     }
 
+    config.devServer = {
+        port: process.env.WEBPACK_PORT,
+        contentBase: 'public',
+        proxy: {
+            '*': {
+                target: process.env.WEBPACK_PROXY,
+                changeOrigin: true,
+                autoRewrite: true,
+                xfwd: true,
+            },
+        },
+    };
+
     return config;
+};
+
+const modules = {
+    front: configure('front'),
+    back: configure('back'),
+};
+
+module.exports = {
+    front: modules.front,
+    back: modules.back,
+    export: () => {
+        return modules[process.env.WEBPACK_MODULE];
+    },
 };

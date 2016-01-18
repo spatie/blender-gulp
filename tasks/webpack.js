@@ -2,11 +2,14 @@
 
 const childProcess = require('child_process');
 const gulp = require('gulp');
+const gutil = require('gulp-util');
 const webpack = require('webpack');
 
 const config = require('../config');
 
 gulp.task('webpack', (callback) => {
+
+    process.env.WEBPACK_MODULE = gutil.env.back ? 'back' : 'front';
 
     if (config.watch) {
         runWebpackDevServer();
@@ -22,10 +25,6 @@ const runWebpackDevServer = () => {
         '--inline',
         '--hot',
     ];
-
-    if (! config.verbose) {
-        options.push('--quiet');
-    }
 
     childProcess.spawn('webpack-dev-server', options, { stdio: 'inherit', env: process.env } );
 };
