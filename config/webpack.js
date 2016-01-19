@@ -45,10 +45,7 @@ const config = {
         ],
     },
     plugins: [
-        new ManifestPlugin({
-            fileName: 'rev-manifest.json',
-            basePath: '/build/'
-        }),
+        new ManifestPlugin({ fileName: 'rev-manifest.json' }),
         ExtractFrontCss,
         ExtractBackCss,
         function() {
