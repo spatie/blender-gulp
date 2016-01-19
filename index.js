@@ -2,6 +2,7 @@
 
 const dotenv = require('dotenv');
 const gulp = require('gulp');
+const gutil = require('gulp-util');
 const path = require('path');
 
 dotenv.load({ path: path.resolve(process.cwd(), '.env')});
@@ -14,16 +15,14 @@ require('./tasks/webpack');
 
 gulp.task('default', callback => {
 
-    if (config.production) {
-        process.env.NODE_ENV = 'production';
-    }
+    if (gutil.env.watch)
+        config.context = 'watch';
 
-    gulp.start(['webpack', 'svg'], callback);
-});
+    if (gutil.env.hot)
+        config.context = 'hot';
 
-gulp.task('watch', callback => {
-
-    config.watch = true;
+    if (gutil.env.production)
+        config.context = 'production';
 
     gulp.start(['webpack', 'svg'], callback);
 });

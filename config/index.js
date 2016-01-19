@@ -3,8 +3,7 @@
 const gutil = require('gulp-util');
 
 module.exports = {
-    production: gutil.env.production || false,
-    watch: false,
+    context: 'default', // default|watch|hot|production 
     app: {
         name: 'Blender',
         'url': 'https://blender.spatie.be',

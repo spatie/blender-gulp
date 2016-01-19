@@ -7,10 +7,10 @@ const ManifestPlugin = require('webpack-manifest-plugin');
 const path = require('path');
 const webpack = require('webpack');
 
-const production = process.env.NODE_ENV === 'production';
+const context = (context) => process.env.WEBPACK_CONTEXT === context;
 
-const ExtractFrontCss = new ExtractTextPlugin('front', 'front.css', { disable: !production });
-const ExtractBackCss = new ExtractTextPlugin('back', 'back.css', { disable: !production });
+const ExtractFrontCss = new ExtractTextPlugin('front', 'front.css', { disable: !context('production') });
+const ExtractBackCss = new ExtractTextPlugin('back', 'back.css', { disable: !context('production') });
 
 const config = {
     context: path.resolve(process.cwd(), 'resources/assets'),
@@ -49,10 +49,6 @@ const config = {
             fileName: 'rev-manifest.json',
             basePath: '/build/'
         }),
-        new CleanWebpackPlugin('public/build', {
-            root: process.cwd(),
-            verbose: false,
-        }),
         ExtractFrontCss,
         ExtractBackCss,
         function() {
@@ -71,7 +67,16 @@ const config = {
     resolve: { extensions: ['', '.js', '.jsx', '.css', '.scss'], },
 };
 
-if (production) {
+if (!context('watch') && !context('hot')) {
+    config.plugins = config.plugins.concat([
+        new CleanWebpackPlugin('public/build', {
+            root: process.cwd(),
+            verbose: false,
+        }),
+    ]);
+}
+
+if (context('production')) {
     config.plugins = config.plugins.concat([
         new webpack.optimize.OccurenceOrderPlugin(),
         new webpack.optimize.UglifyJsPlugin({
