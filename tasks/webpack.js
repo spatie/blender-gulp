@@ -19,7 +19,7 @@ gulp.task('webpack', callback => {
         return;
     }
 
-    const options = [],
+    const options = [];
 
     if (config.context === 'watch') {
         options.push('-w');
