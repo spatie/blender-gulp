@@ -1,6 +1,10 @@
 'use strict';
 
+const dotenv = require('dotenv');
 const gulp = require('gulp');
+const path = require('path');
+
+dotenv.load({ path: path.resolve(process.cwd(), '.env')});
 
 const config = require('./config');
 
