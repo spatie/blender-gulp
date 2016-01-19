@@ -7,7 +7,7 @@ const webpack = require('webpack');
 
 const config = require('../config');
 
-gulp.task('webpack', (callback) => {
+gulp.task('webpack', callback => {
 
     if (config.watch) {
         runWebpackDevServer();

@@ -8,7 +8,8 @@ require('./tasks/favicon');
 require('./tasks/svg');
 require('./tasks/webpack');
 
-gulp.task('default', (callback) => {
+gulp.task('default', callback => {
+
     if (config.production) {
         process.env.NODE_ENV = 'production';
     }
@@ -16,7 +17,8 @@ gulp.task('default', (callback) => {
     gulp.start(['webpack', 'svg'], callback);
 });
 
-gulp.task('watch', (callback) => {
+gulp.task('watch', callback => {
+
     config.watch = true;
 
     gulp.start(['webpack', 'svg'], callback);

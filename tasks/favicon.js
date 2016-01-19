@@ -1,48 +1,39 @@
 'use strict';
 
 const del = require('del');
-const favicon = require('favicons');
+const favicons = require('gulp-favicons');
 const gulp = require('gulp');
 
 const config = require('../config');
 
 gulp.task('favicon', () => {
 
-    del(config.favicon.view).then(() => {
-        favicon({
-            files: {
-                src: config.favicon.src,
-                dest: config.favicon.dest,
-                html: config.favicon.view,
-                iconsPath: '/',
-                androidManifest: config.favicon.dest,
-                browserConfig: config.favicon.dest,
-                firefoxManifest: config.favicon.dest,
-                yandexManifest: config.favicon.dest,
-            },
+    return gulp.src(config.favicons.src)
+        .pipe(favicons({
+            html: config.favicons.view,
+            iconsPath: '/',
+            appName: config.app.name,
+            appDescription: config.app.description,
+            developer: config.app.developer,
+            developerURL: config.app.developerUrl,
+            version: 1.0,
+            background: '#ffffff',
+            index: '/',
+            url: config.app.url,
+            silhouette: false,
+            logging: false,
             icons: {
                 android: true,
                 appleIcon: true,
                 appleStartup: false,
                 coast: false,
-                favicon: true,
+                favicons: true,
                 firefox: true,
-                opengraph: false,
+                opengraph: true,
+                twitter: false,
                 windows: true,
                 yandex: false,
             },
-            config: {
-                appName: config.app.name,
-                appDescription: config.app.description,
-                developer: config.app.developer,
-                developerURL: config.app.developerUrl,
-                version: 1.0,
-                background: '#ffffff',
-                index: '/',
-                url: config.app.url,
-                silhouette: false,
-                logging: false,
-            },
-        });
-    });
+        }))
+        .pipe(gulp.dest(config.favicons.dest));
 });
