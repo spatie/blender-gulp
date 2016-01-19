@@ -7,7 +7,7 @@ const webpack = require('webpack');
 
 const config = require('../config');
 
-gulp.task('webpack', callback => {
+gulp.task('webpack', (callback) => {
 
     if (config.watch) {
         runWebpackDevServer();
@@ -15,7 +15,7 @@ gulp.task('webpack', callback => {
     }
 
     spawn('webpack', [], { stdio: 'inherit', env: process.env })
-        .on('close', callback);
+        .on('close', code => code !== 1 ? callback() : null);
 });
 
 const runWebpackDevServer = () => {
@@ -26,5 +26,5 @@ const runWebpackDevServer = () => {
     ];
 
     spawn('webpack-dev-server', options, { stdio: 'inherit', env: process.env } )
-        .on('close', callback);
+        .on('close', code => code !== 1 ? callback() : null);
 };
