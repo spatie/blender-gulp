@@ -1,8 +1,8 @@
 'use strict';
 
-const childProcess = require('child_process');
 const gulp = require('gulp');
 const gutil = require('gulp-util');
+const spawn = require('child_process').spawn;
 const webpack = require('webpack');
 
 const config = require('../config');
@@ -14,7 +14,8 @@ gulp.task('webpack', (callback) => {
         return;
     }
 
-    childProcess.spawn('webpack', [], { stdio: 'inherit', env: process.env });
+    spawn('webpack', [], { stdio: 'inherit', env: process.env })
+        .on('close', callback);
 });
 
 const runWebpackDevServer = () => {
@@ -24,5 +25,6 @@ const runWebpackDevServer = () => {
         '--hot',
     ];
 
-    childProcess.spawn('webpack-dev-server', options, { stdio: 'inherit', env: process.env } );
+    spawn('webpack-dev-server', options, { stdio: 'inherit', env: process.env } )
+        .on('close', callback);
 };
