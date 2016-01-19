@@ -8,9 +8,9 @@ const config = require('../config');
 
 gulp.task('favicon', () => {
 
-    return gulp.src(config.favicons.src)
+    return gulp.src(config.favicon.src)
         .pipe(favicons({
-            html: config.favicons.view,
+            html: config.favicon.view,
             iconsPath: '/',
             appName: config.app.name,
             appDescription: config.app.description,
@@ -35,5 +35,5 @@ gulp.task('favicon', () => {
                 yandex: false,
             },
         }))
-        .pipe(gulp.dest(config.favicons.dest));
+        .pipe(gulp.dest(config.favicon.dest));
 });
