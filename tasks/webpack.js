@@ -9,8 +9,6 @@ const config = require('../config');
 
 gulp.task('webpack', (callback) => {
 
-    process.env.WEBPACK_MODULE = gutil.env.back ? 'back' : 'front';
-
     if (config.watch) {
         runWebpackDevServer();
         return;

@@ -4,11 +4,21 @@ const gulp = require('gulp');
 
 const config = require('./config');
 
-if (config.production) {
-    process.env.NODE_ENV = 'production';
-}
-
-require('./tasks/default');
 require('./tasks/favicon');
 require('./tasks/svg');
+require('./tasks/watch');
 require('./tasks/webpack');
+
+gulp.task('default', (callback) => {
+    if (config.production) {
+        process.env.NODE_ENV = 'production';
+    }
+
+    gulp.start(['webpack', 'svg'], callback);
+});
+
+gulp.task('watch', (callback) => {
+    config.watch = true;
+
+    gulp.start(['webpack', 'svg'], callback);
+});

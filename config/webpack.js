@@ -9,16 +9,16 @@ const webpack = require('webpack');
 
 const production = process.env.NODE_ENV === 'production';
 
-const ExtractFrontCss = new ExtractTextPlugin('css/front.css');
-const ExtractBackCss = new ExtractTextPlugin('css/back.css');
+const ExtractFrontCss = new ExtractTextPlugin('front', 'front.css', { disable: !production });
+const ExtractBackCss = new ExtractTextPlugin('back', 'back.css', { disable: !production });
 
 const config = {
     context: path.resolve(process.cwd(), 'resources/assets'),
     output: {
         path: path.resolve(process.cwd(), 'public/build'),
-        filename: `js/[name].js`,
-        chunkFilename: `js/[name].js`,
-        publicPath: '/assets/',
+        filename: `[name].js`,
+        chunkFilename: `[name].js`,
+        publicPath: '/build/',
     },
     module: {
         hot: { accept: true },
