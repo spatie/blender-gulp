@@ -6,7 +6,6 @@ const config = require('./config');
 
 require('./tasks/favicon');
 require('./tasks/svg');
-require('./tasks/watch');
 require('./tasks/webpack');
 
 gulp.task('default', (callback) => {
