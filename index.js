@@ -16,14 +16,23 @@ require('./tasks/webpack');
 
 gulp.task('default', callback => {
 
-    if (gutil.env.watch)
-        config.context = 'watch';
-
-    if (gutil.env.hot)
-        config.context = 'hot';
-
-    if (gutil.env.production)
+    if (gutil.env.production) {
         config.context = 'production';
+    }
+
+    gulp.start(['webpack', 'svg'], callback);
+});
+
+gulp.task('watch', callback => {
+
+    config.context = 'watch';
+
+    gulp.start(['webpack', 'svg'], callback);
+});
+
+gulp.task('hot', callback => {
+
+    config.context = 'hot';
 
     gulp.start(['webpack', 'svg'], callback);
 });

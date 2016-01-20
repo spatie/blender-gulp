@@ -11,8 +11,8 @@ gulp.task('help', () => {
     gutil.log('');
     gutil.log(gutil.colors.black.bgCyan('Build tasks'));
     gutil.log(gutil.colors.green('gulp'), '               compile assets 📦');
-    gutil.log(gutil.colors.green('gulp --watch'), '       compile & watch for changes 👀');
-    gutil.log(gutil.colors.green('gulp --hot'), '         compile & assets from a hot reload server 🔥');
+    gutil.log(gutil.colors.green('gulp watch'), '         compile & watch for changes 👀');
+    gutil.log(gutil.colors.green('gulp hot'), '           compile & assets from a hot reload server 🔥');
     gutil.log(gutil.colors.green('gulp --production'), '  compile & minify for production 🎉');
     gutil.log('');
     gutil.log(gutil.colors.black.bgCyan('Utilities'));
