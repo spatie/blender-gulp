@@ -14,8 +14,8 @@ const config = {
     context: path.resolve(process.cwd(), 'resources/assets'),
     output: {
         path: path.resolve(process.cwd(), 'public/build'),
-        filename: `[name].js`,
-        chunkFilename: `[name].js`,
+        filename: `[name]-[hash].js`,
+        chunkFilename: `[name]-[chunkhash].js`,
         publicPath: '/build/',
     },
     module: {
