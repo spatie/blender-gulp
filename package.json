@@ -2,7 +2,7 @@
   "name": "blender-gulp",
   "version": "2.0.0",
   "description": "Blender CMS Gulp settings",
-  "main": "blender-gulp.js",
+  "main": "gulpfile.js",
   "scripts": {
     "test:lint": "node_modules/.bin/eslint .",
     "test": "npm run test:lint"
