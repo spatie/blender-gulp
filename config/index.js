@@ -1,9 +1,9 @@
 module.exports = {
     context: 'default', // default|watch|hot|production
     app: {
-        name: 'Blender',
-        'url': 'https://blender.spatie.be',
-        description: 'Blender CMS',
+        name: process.env.APP_NAME,
+        url: process.env.APP_URL,
+        description: process.env.APP_NAME,
         developer: 'spatie.be',
         developerUrl: 'https://spatie.be',
     },

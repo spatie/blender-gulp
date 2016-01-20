@@ -83,11 +83,11 @@ if (context('production')) {
 }
 
 config.devServer = {
-    port: process.env.WEBPACK_PORT,
+    port: process.env.WEBPACK_PORT || 3000,
     contentBase: 'public',
     proxy: {
         '*': {
-            target: process.env.WEBPACK_PROXY,
+            target: process.env.APP_URL,
             changeOrigin: true,
             autoRewrite: true,
             xfwd: true,
