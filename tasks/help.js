@@ -15,4 +15,8 @@ gulp.task('help', () => {
     gutil.log(gutil.colors.black.bgCyan('Utilities'));
     gutil.log(gutil.colors.green('gulp favicon'), '        standalone utility for favicon generation 🌐');
     gutil.log('');
+    gutil.log(gutil.colors.black.bgCyan('Linting'));
+    gutil.log(gutil.colors.green('gulp lint:js'), '        lint your project\'s js files 🎀');
+    gutil.log(gutil.colors.green('gulp lint:sass'), '      lint your project\'s sass files 🎀');
+    gutil.log('');
 });
