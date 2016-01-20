@@ -36,10 +36,6 @@ const config = {
                 include: /\/sass\/back\//,
                 loader: ExtractBackCss.extract('style', ['css', 'sass']),
             },
-            {
-                test: /\.(png|jpg|jpeg|gif|svg)$/,
-                loader: 'url?limit=250000',
-            },
         ],
     },
     plugins: [

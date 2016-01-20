@@ -1,102 +1,36 @@
-const autoprefixer = require('autoprefixer');
-const CleanWebpackPlugin = require('clean-webpack-plugin');
-const ExtractTextPlugin = require('extract-text-webpack-plugin');
-const ManifestPlugin = require('webpack-manifest-plugin');
-const path = require('path');
-const webpack = require('webpack');
+const gulp = require('gulp');
+const spawn = require('../lib/spawn');
 
-const context = (context) => process.env.WEBPACK_CONTEXT === context;
+const config = require('../config');
 
-const ExtractFrontCss = new ExtractTextPlugin('front', 'front.css', { disable: !context('production') });
-const ExtractBackCss = new ExtractTextPlugin('back', 'back.css', { disable: !context('production') });
+gulp.task('webpack', callback => {
 
-const config = {
-    context: path.resolve(process.cwd(), 'resources/assets'),
-    output: {
-        path: path.resolve(process.cwd(), 'public/build'),
-        filename: `[name].js`,
-        chunkFilename: `[name].js`,
-        publicPath: '/build/',
-    },
-    module: {
-        hot: { accept: true },
-        loaders: [
-            {
-                test: /.jsx?$/,
-                loaders: ['react-hot', 'babel'],
-                exclude: /node_modules/,
-            },
-            {
-                test: /\.scss$/,
-                include: /\/sass\/front\//,
-                loader: ExtractFrontCss.extract('style', 'css!postcss!sass'),
-            },
-            {
-                test: /\.scss$/,
-                include: /\/sass\/back\//,
-                loader: ExtractBackCss.extract('style', 'css!postcss!sass'),
-            },
-            {
-                test: /\.(png|jpg|jpeg|gif|svg)$/,
-                loader: 'url?limit=250000',
-            },
-        ],
-    },
-    plugins: [
-        new ManifestPlugin({ fileName: 'rev-manifest.json' }),
-        ExtractFrontCss,
-        ExtractBackCss,
-        function() {
-            this.plugin('watch-run', function(watching, callback) {
-                console.log('Begin compile at ' + new Date());
-                callback();
-            });
-        },
-    ],
-    sassLoader: {
-        includePaths: [path.resolve(process.cwd(), 'node_modules')],
-    },
-    postcss() {
-        return [ autoprefixer ];
-    },
-    resolve: { extensions: ['', '.js', '.jsx', '.css', '.scss'] },
+    if (config.context === 'production') {
+        process.env.NODE_ENV = 'production';
+    }
+
+    process.env.WEBPACK_CONTEXT = config.context;
+
+    if (config.context === 'hot') {
+        runWebpackDevServer(callback);
+        return;
+    }
+
+    const options = [];
+
+    if (config.context === 'watch') {
+        options.push('-w');
+    }
+
+    spawn('webpack', options, callback);
+});
+
+const runWebpackDevServer = callback => {
+
+    const options = [
+        '--inline',
+        '--hot',
+    ];
+
+    spawn('webpack-dev-server', options, callback);
 };
-
-if (!context('watch') && !context('hot')) {
-    config.plugins = config.plugins.concat([
-        new CleanWebpackPlugin('public/build', {
-            root: process.cwd(),
-            verbose: false,
-        }),
-    ]);
-}
-
-if (context('production')) {
-    config.plugins = config.plugins.concat([
-        new webpack.optimize.OccurenceOrderPlugin(),
-        new webpack.optimize.UglifyJsPlugin({
-            compress: {
-                warnings: false,
-                screw_ie8: true,
-            },
-            mangle: {
-                screw_ie8: true,
-            },
-        }),
-    ]);
-}
-
-config.devServer = {
-    port: process.env.WEBPACK_PORT,
-    contentBase: 'public',
-    proxy: {
-        '*': {
-            target: process.env.WEBPACK_PROXY,
-            changeOrigin: true,
-            autoRewrite: true,
-            xfwd: true,
-        },
-    },
-};
-
-module.exports = config;
