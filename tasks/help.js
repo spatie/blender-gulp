@@ -11,6 +11,11 @@ gulp.task('help', () => {
     gutil.log(gutil.colors.green('gulp'), gutil.colors.yellow('[--production]'), ' compile [& minify] assets 📦');
     gutil.log(gutil.colors.green('gulp watch'), '          compile & watch for changes 👀');
     gutil.log(gutil.colors.green('gulp hot'), '            compile & assets from a hot reload server 🔥');
+    gutil.log(gutil.colors.dim('gulp webpack'), '        run the `webpack` command',
+        gutil.colors.dim('(included in the default task)'));
+    gutil.log(gutil.colors.dim('gulp svg'), '            minify svg files',
+        gutil.colors.dim('(included in the default task)'));
+    gutil.log('');
     gutil.log('');
     gutil.log(gutil.colors.black.bgCyan('Utilities'));
     gutil.log(gutil.colors.green('gulp favicon'), '        standalone utility for favicon generation 🌐');
