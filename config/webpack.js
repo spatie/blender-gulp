@@ -7,8 +7,8 @@ const webpack = require('webpack');
 
 const context = (context) => process.env.WEBPACK_CONTEXT === context;
 
-const ExtractFrontCss = new ExtractTextPlugin('front', 'front.css', { disable: !context('production') });
-const ExtractBackCss = new ExtractTextPlugin('back', 'back.css', { disable: !context('production') });
+const ExtractFrontCss = new ExtractTextPlugin('front', 'front-[hash].css', { disable: !context('production') });
+const ExtractBackCss = new ExtractTextPlugin('back', 'back-[hash].css', { disable: !context('production') });
 
 const config = {
     context: path.resolve(process.cwd(), 'resources/assets'),
