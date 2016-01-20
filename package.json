@@ -14,9 +14,13 @@
     "spatie",
     "blender",
     "gulp",
+    "webpack",
     "javascript"
   ],
-  "author": "Willem Van Bockstal",
+  "authors": [
+      "Willem Van Bockstal <willem@spatie.be>",
+      "Sebastian De Deyne <sebastian@spatie.be>"
+  ],
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/spatie-custom/blender-gulp/issues"
