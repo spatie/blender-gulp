@@ -1,5 +1,3 @@
-'use strict';
-
 const autoprefixer = require('autoprefixer');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
@@ -61,7 +59,7 @@ const config = {
     postcss() {
         return [ autoprefixer ];
     },
-    resolve: { extensions: ['', '.js', '.jsx', '.css', '.scss'], },
+    resolve: { extensions: ['', '.js', '.jsx', '.css', '.scss'] },
 };
 
 if (!context('watch') && !context('hot')) {

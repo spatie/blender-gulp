@@ -4,8 +4,7 @@
   "description": "Blender CMS Gulp settings",
   "main": "gulpfile.js",
   "scripts": {
-    "test:lint": "node_modules/.bin/eslint .",
-    "test": "npm run test:lint"
+    "lint": "node_modules/.bin/eslint ."
   },
   "repository": {
     "type": "git",
@@ -27,11 +26,12 @@
     "autoprefixer": "^6.3.1",
     "clean-webpack-plugin": "^0.1.6",
     "css-loader": "^0.14.5",
-    "del": "^2.2.0",
     "dotenv": "^1.2.0",
     "extract-text-webpack-plugin": "^1.0.1",
     "gulp": "^3.9.0",
+    "gulp-eslint": "^1.1.1",
     "gulp-favicons": "^2.2.5",
+    "gulp-sass-lint": "^1.1.1",
     "gulp-svgmin": "^1.2.0",
     "gulp-util": "^3.0.7",
     "node-sass": "^3.4.2",

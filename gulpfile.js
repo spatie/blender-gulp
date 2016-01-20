@@ -1,5 +1,3 @@
-'use strict';
-
 const dotenv = require('dotenv');
 const gulp = require('gulp');
 const gutil = require('gulp-util');
@@ -11,6 +9,7 @@ const config = require('./config');
 
 require('./tasks/favicon');
 require('./tasks/help');
+require('./tasks/lint');
 require('./tasks/svg');
 require('./tasks/webpack');
 

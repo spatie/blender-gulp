@@ -1,7 +1,3 @@
-'use strict';
-
-const gutil = require('gulp-util');
-
 module.exports = {
     context: 'default', // default|watch|hot|production
     app: {
@@ -19,5 +15,13 @@ module.exports = {
         src: 'resources/assets/favicon/500x500.png',
         dest: 'public',
         view: 'resources/views/front/layout/_partials/favicons.blade.php',
+    },
+    lint: {
+        js: ['resources/assets/js/**/*.js'],
+        sass: [
+            'resources/assets/sass/front/**/*.scss',
+            '!resources/assets/sass/front/utility/*.scss',
+            '!resources/assets/sass/front/vendor-custom/*.scss',
+        ],
     },
 };

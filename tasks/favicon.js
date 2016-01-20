@@ -1,6 +1,3 @@
-'use strict';
-
-const del = require('del');
 const favicons = require('gulp-favicons');
 const gulp = require('gulp');
 
