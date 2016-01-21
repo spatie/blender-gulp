@@ -42,6 +42,7 @@ const config = {
         new ManifestPlugin({ fileName: 'rev-manifest.json' }),
         ExtractFrontCss,
         ExtractBackCss,
+        new webpack.NormalModuleReplacementPlugin(/\.(jpe?g|png|gif|svg)$/, 'node-noop'),
         function() {
             this.plugin('watch-run', function(watching, callback) {
                 console.log('Begin compile at ' + new Date());
