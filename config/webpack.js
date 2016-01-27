@@ -29,12 +29,12 @@ const config = {
             {
                 test: /\.scss$/,
                 include: /\/sass\/front\//,
-                loader: ExtractFrontCss.extract('style', ['css', 'sass']),
+                loader: ExtractFrontCss.extract('style', 'css!postcss!sass'),
             },
             {
                 test: /\.scss$/,
                 include: /\/sass\/back\//,
-                loader: ExtractBackCss.extract('style', ['css', 'sass']),
+                loader: ExtractBackCss.extract('style', 'css!postcss!sass'),
             },
         ],
     },

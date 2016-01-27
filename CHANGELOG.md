@@ -2,6 +2,9 @@
 
 All Notable changes to `blender-gulp` will be documented in this file
 
+## 2.0.3 - 2016-01-27
+- Fixed: Enabled autoprefixing
+
 ## 2.0.3 - 2016-01-20
 - Added: `noop` for images
 
