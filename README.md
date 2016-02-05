@@ -3,6 +3,8 @@
 [![Software License](https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square)](LICENSE.md)
 [![Code Climate](https://img.shields.io/codeclimate/github/spatie-custom/blender-gulp.svg?style=flat-square)](https://img.shields.io/codeclimate/github/spatie-custom/blender-gulp.svg)
 
+**This Readme is for version 1, should get an update soon!**
+
 This is the gulp setup for [Blender CMS](https://github.com/spatie-custom/blender).
 
 ## Install
