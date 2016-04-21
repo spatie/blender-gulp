@@ -3,8 +3,6 @@
 [![Software License](https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square)](LICENSE.md)
 [![Code Climate](https://img.shields.io/codeclimate/github/spatie-custom/blender-gulp.svg?style=flat-square)](https://img.shields.io/codeclimate/github/spatie-custom/blender-gulp.svg)
 
-**This Readme is for version 1, should get an update soon!**
-
 This is the gulp setup for [Blender CMS](https://github.com/spatie-custom/blender).
 
 ## Install
@@ -20,47 +18,40 @@ This NPM package is custom built for [Spatie](https://spatie.be) projects and is
 
 We assume that you have [Composer](https://getcomposer.org) already installed for the php code style fixer.
 
-We install it via a *custom npm* registry:
+We install it via a *custom npm* registry `npm.spatie.be`:
 ``` bash
 $ npm i blender-gulp --save-dev
 ```
 
-In order to install it via GitHub you must specify this extra repository in `package.json` and specify a version:
-
-``` bash
-$ npm i "spatie-custom/blender-gulp#1.0.0" --save-dev
-```
-
-## Sample gulpfile.js
+## Sample webpack.config.js
 
 ``` js
-'use strict';
+const webpack = require('webpack');
 
-// Include blender-gulp npm module
-const blenderGulp = require("blender-gulp");
+const config = require('blender-gulp/config/webpack');
 
-// Which sets to combine for css & js? Which BrowserSync settings?
-blenderGulp.options = {
-    files : {
-        front : {
-            sass : 'front/front.scss',
-            js : ['app.js'],
-        },
-        back : {
-            sass : 'back/back.scss',
-            js : ['app.js', 'chart.js'],
-        }
-    },
-    url: '...',
-    browserSync: {
-        proxy: '….xip.io/',
-        // ...
-    }
+config.entry = {
+    'back.vendor': ['jquery'],
+    'back.head': './js/back/head.js',
+    'back.app': './js/back/app.js',
+    'back.style': './sass/back/back.scss',
+    'front.head': './js/front/head.js',
+    'front.app': './js/front/app.js',
+    'front.style': './sass/front/front.scss',
 };
 
-// Initiate
-blenderGulp.init();
+config.plugins.push(new webpack.optimize.CommonsChunkPlugin({
+    name: 'back.vendor',
+    chunks: ['back.head', 'back.app', 'back.editor', 'back.chart'],
+    filename: 'back.vendor.js',
+}));
 
+config.plugins.push(new webpack.ProvidePlugin({
+    $: 'jquery',
+    jQuery: 'jquery',
+}));
+
+module.exports = config;
 ```
 
 ## Usage

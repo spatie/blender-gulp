@@ -2,6 +2,9 @@
 
 All Notable changes to `blender-gulp` will be documented in this file
 
+## 2.0.6 - 2016-04-21
+- Changed: Disable open graph generation in favicon task
+
 ## 2.0.5 - 2016-02-01
 - Fixed: Added babel peerDependencies
 

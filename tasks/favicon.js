@@ -26,7 +26,7 @@ gulp.task('favicon', () => {
                 coast: false,
                 favicons: true,
                 firefox: true,
-                opengraph: true,
+                opengraph: false,
                 twitter: false,
                 windows: true,
                 yandex: false,
