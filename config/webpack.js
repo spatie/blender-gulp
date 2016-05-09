@@ -70,13 +70,18 @@ if (!context('watch') && !context('hot')) {
 
 if (context('production')) {
     config.plugins = config.plugins.concat([
+        new webpack.DefinePlugin({
+            'process.env': {
+                'NODE_ENV': 'production',
+            },
+        }),
         new webpack.optimize.OccurenceOrderPlugin(),
         new webpack.optimize.UglifyJsPlugin({
-                compress: {
-                    warnings: false,
-                },
-                mangle: true,
-                screw_ie8: true,
+            compress: {
+                warnings: false,
+            },
+            mangle: true,
+            screw_ie8: true,
         }),
     ]);
 }

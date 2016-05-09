@@ -2,6 +2,9 @@
 
 All Notable changes to `blender-gulp` will be documented in this file
 
+## 2.0.7 - 2016-05-09
+- Fixed: Defined `NODE_ENV` via webpack's `DefinePlugin` for production builds
+
 ## 2.0.6 - 2016-04-21
 - Changed: Disable open graph generation in favicon task
 
