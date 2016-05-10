@@ -19,7 +19,9 @@ const config = {
         publicPath: '/build/',
     },
     module: {
-        hot: { accept: true },
+        hot: {
+            accept: true,
+        },
         loaders: [
             {
                 test: /.jsx?$/,
@@ -56,7 +58,9 @@ const config = {
     postcss() {
         return [ autoprefixer ];
     },
-    resolve: { extensions: ['', '.js', '.jsx', '.css', '.scss'] },
+    resolve: {
+        extensions: ['', '.js', '.jsx', '.css', '.scss'],
+    },
 };
 
 if (!context('watch') && !context('hot')) {
