@@ -41,7 +41,9 @@ const config = {
         ],
     },
     plugins: [
-        new ManifestPlugin({ fileName: 'rev-manifest.json' }),
+        new ManifestPlugin({
+            fileName: 'rev-manifest.json',
+        }),
         ExtractFrontCss,
         ExtractBackCss,
         new webpack.NormalModuleReplacementPlugin(/\.(jpe?g|png|gif|svg)$/, 'node-noop'),
