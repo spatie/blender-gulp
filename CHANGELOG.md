@@ -2,6 +2,9 @@
 
 All Notable changes to `blender-gulp` will be documented in this file
 
+## 2.1.0 - 2016-05-19
+- Added globbing for sass imports
+
 ## 2.0.7 - 2016-05-09
 - Fixed: Defined `NODE_ENV` via webpack's `DefinePlugin` for production builds
 

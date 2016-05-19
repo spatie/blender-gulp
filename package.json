@@ -1,6 +1,6 @@
 {
   "name": "blender-gulp",
-  "version": "2.0.9",
+  "version": "2.1.0",
   "description": "Blender CMS Gulp settings",
   "main": "gulpfile.js",
   "scripts": {
@@ -38,6 +38,7 @@
     "gulp-sass-lint": "^1.1.1",
     "gulp-svgmin": "^1.2.0",
     "gulp-util": "^3.0.7",
+    "import-glob-loader": "^1.1.0",
     "node-noop": "^1.0.0",
     "node-sass": "^3.4.2",
     "postcss": "^5.0.14",

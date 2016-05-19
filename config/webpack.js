@@ -31,12 +31,12 @@ const config = {
             {
                 test: /\.scss$/,
                 include: /\/sass\/front\//,
-                loader: ExtractFrontCss.extract('style', 'css!postcss!sass'),
+                loader: ExtractFrontCss.extract('style', 'css!postcss!sass!import-glob-loader'),
             },
             {
                 test: /\.scss$/,
                 include: /\/sass\/back\//,
-                loader: ExtractBackCss.extract('style', 'css!postcss!sass'),
+                loader: ExtractBackCss.extract('style', 'css!postcss!sass!import-glob-loader'),
             },
         ],
     },
