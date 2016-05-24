@@ -2,6 +2,9 @@
 
 All Notable changes to `blender-gulp` will be documented in this file
 
+## 2.1.1 - 2016-05-19
+- Added versions of `npm` and `webpack` in `gulp help`
+
 ## 2.1.0 - 2016-05-19
 - Added globbing for sass imports
 
