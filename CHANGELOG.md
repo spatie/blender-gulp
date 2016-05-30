@@ -2,6 +2,9 @@
 
 All Notable changes to `blender-gulp` will be documented in this file
 
+## 2.1.2 - 2016-05-30
+- Failing version checks in `gulp help` no longer kill the process
+
 ## 2.1.1 - 2016-05-19
 - Added versions of `npm` and `webpack` in `gulp help`
 
