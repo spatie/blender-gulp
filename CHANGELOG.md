@@ -2,6 +2,9 @@
 
 All Notable changes to `blender-gulp` will be documented in this file
 
+### 2.1.4 - 2016-05-31
+- `use strict` in `lib`
+
 ### 2.1.3 - 2016-05-30
 - Fixed dependencies
 
