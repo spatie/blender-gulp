@@ -7,8 +7,8 @@ const webpack = require('webpack');
 
 const context = (context) => process.env.WEBPACK_CONTEXT === context;
 
-const ExtractFrontCss = new ExtractTextPlugin('front', 'front-[hash].css', { disable: !context('production') });
-const ExtractBackCss = new ExtractTextPlugin('back', 'back-[hash].css', { disable: !context('production') });
+const ExtractFrontCss = new ExtractTextPlugin('front', 'front-[hash].css');
+const ExtractBackCss = new ExtractTextPlugin('back', 'back-[hash].css');
 
 const config = {
     context: path.resolve(process.cwd(), 'resources/assets'),
@@ -19,9 +19,6 @@ const config = {
         publicPath: '/build/',
     },
     module: {
-        hot: {
-            accept: true,
-        },
         loaders: [
             {
                 test: /.jsx?$/,
@@ -65,7 +62,7 @@ const config = {
     },
 };
 
-if (!context('watch') && !context('hot')) {
+if (!context('watch')) {
     config.plugins = config.plugins.concat([
         new CleanWebpackPlugin('public/build', {
             root: process.cwd(),
@@ -91,18 +88,5 @@ if (context('production')) {
         }),
     ]);
 }
-
-config.devServer = {
-    port: process.env.WEBPACK_PORT || 3000,
-    contentBase: 'public',
-    proxy: {
-        '*': {
-            target: process.env.APP_URL,
-            changeOrigin: true,
-            autoRewrite: true,
-            xfwd: true,
-        },
-    },
-};
 
 module.exports = config;

@@ -11,11 +11,6 @@ gulp.task('webpack', callback => {
 
     process.env.WEBPACK_CONTEXT = config.context;
 
-    if (config.context === 'hot') {
-        runWebpackDevServer(callback);
-        return;
-    }
-
     const options = [];
 
     if (config.context === 'watch') {
@@ -24,13 +19,3 @@ gulp.task('webpack', callback => {
 
     spawn('webpack', options, callback);
 });
-
-const runWebpackDevServer = callback => {
-
-    const options = [
-        '--inline',
-        '--hot',
-    ];
-
-    spawn('webpack-dev-server', options, callback);
-};
