@@ -2,6 +2,9 @@
 
 All Notable changes to `blender-gulp` will be documented in this file
 
+### 2.2.0 - 2016-09-28
+- Removed webpack-dev-server and hot
+
 ### 2.1.5 - 2016-06-08
 - Cleaned up babel dependencies
 
