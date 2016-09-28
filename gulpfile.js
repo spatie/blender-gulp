@@ -28,10 +28,3 @@ gulp.task('watch', callback => {
 
     gulp.start(['webpack', 'svg'], callback);
 });
-
-gulp.task('hot', callback => {
-
-    config.context = 'hot';
-
-    gulp.start(['webpack', 'svg'], callback);
-});

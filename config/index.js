@@ -1,5 +1,5 @@
 module.exports = {
-    context: 'default', // default|watch|hot|production
+    context: 'default', // 'default'|'watch'|'production'
     app: {
         name: process.env.APP_NAME,
         url: process.env.APP_URL,
