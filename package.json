@@ -1,6 +1,6 @@
 {
   "name": "blender-gulp",
-  "version": "2.2.0",
+  "version": "2.3.0-beta.1",
   "description": "Blender CMS Gulp settings",
   "main": "gulpfile.js",
   "scripts": {
@@ -28,10 +28,13 @@
   "homepage": "https://github.com/spatie-custom/blender-gulp",
   "dependencies": {
     "autoprefixer": "^6.3.1",
+    "babel": "^6.5.0",
+    "babel-core": "^6.0.0",
     "babel-loader": "^6.2.0",
     "clean-webpack-plugin": "^0.1.6",
     "css-loader": "^0.14.5",
     "dotenv": "^1.2.0",
+    "eslint-loader": "^1.5.0",
     "extract-text-webpack-plugin": "^1.0.1",
     "global-modules": "^0.2.0",
     "gulp": "^3.9.0",
@@ -52,12 +55,10 @@
     "webpack-manifest-plugin": "^0.5.0"
   },
   "devDependencies": {
-    "eslint": "^1.8.0"
+    "babel": "^6.5.0",
+    "eslint": "^3.0.0"
   },
   "engines": {
-      "npm": "^3.0.0"
-  },
-  "peerDependencies": {
-    "babel": "^6.5.0"
+    "npm": "^3.0.0"
   }
 }
