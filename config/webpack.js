@@ -22,7 +22,7 @@ const config = {
             {
                 test: /\.(js|jsx)$/,
                 loader: 'eslint',
-                exclude: ['node_modules'],
+                exclude: /node_modules/,
             }
         ],
         loaders: [
