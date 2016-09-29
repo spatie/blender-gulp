@@ -16,6 +16,7 @@ const config = {
         path: path.resolve(process.cwd(), 'public/build'),
         filename: context('production') ? '[name]-[hash].js' : '[name].js',
         chunkFilename: context('production') ? '[name]-[chunkhash].js' : '[name].js',
+        publicPath: '/build/',
     },
     module: {
         preLoaders: [
