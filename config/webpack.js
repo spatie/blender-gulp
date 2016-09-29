@@ -52,16 +52,18 @@ const config = {
         new webpack.NormalModuleReplacementPlugin(/\.(jpe?g|png|gif|svg)$/, 'node-noop'),
         function() {
             this.plugin('watch-run', function(watching, callback) {
-                console.log('Begin compile at ' + new Date());
+                process.stdout.write('\x1B[2J\x1B[0f');
                 callback();
             });
         },
     ],
     sassLoader: {
-        includePaths: [path.resolve(process.cwd(), 'node_modules')],
+        includePaths: [
+            path.resolve(process.cwd(), 'node_modules')
+        ],
     },
     postcss() {
-        return [ autoprefixer ];
+        return [autoprefixer];
     },
     resolve: {
         extensions: ['', '.js', '.jsx', '.css', '.scss'],
