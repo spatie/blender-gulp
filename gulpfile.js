@@ -7,7 +7,6 @@ dotenv.load({ path: path.resolve(process.cwd(), '.env')});
 
 const config = require('./config');
 
-require('./tasks/favicon');
 require('./tasks/help');
 require('./tasks/lint');
 require('./tasks/svg');

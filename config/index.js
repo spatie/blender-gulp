@@ -11,11 +11,6 @@ module.exports = {
         src: 'resources/assets/svg',
         dest: 'public/images/svg',
     },
-    favicon: {
-        src: 'resources/assets/favicon/500x500.png',
-        dest: 'public',
-        view: 'resources/views/front/layout/_partials/favicons.blade.php',
-    },
     lint: {
         js: ['resources/assets/js/**/*.js'],
         sass: [

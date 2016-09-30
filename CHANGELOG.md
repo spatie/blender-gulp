@@ -2,6 +2,9 @@
 
 All Notable changes to `blender-gulp` will be documented in this file
 
+### 2.4.0 - 2016-09-30
+- Removed favicon task
+
 ### 2.2.0 - 2016-09-28
 - Removed webpack-dev-server and hot
 
