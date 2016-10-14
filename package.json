@@ -1,10 +1,11 @@
 {
   "name": "blender-gulp",
-  "version": "2.4.0",
+  "version": "2.4.1",
   "description": "Blender CMS Gulp settings",
   "main": "gulpfile.js",
   "scripts": {
-    "lint": "eslint ."
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix"
   },
   "repository": {
     "type": "git",
@@ -38,7 +39,6 @@
     "extract-text-webpack-plugin": "^1.0.1",
     "global-modules": "^0.2.0",
     "gulp": "^3.9.0",
-    "gulp-eslint": "^1.1.1",
     "gulp-sass-lint": "^1.1.1",
     "gulp-svgmin": "^1.2.0",
     "gulp-util": "^3.0.7",
@@ -55,9 +55,7 @@
   },
   "devDependencies": {
     "babel": "^6.5.0",
-    "eslint": "^3.0.0"
-  },
-  "engines": {
-    "npm": "^3.0.0"
+    "eslint": "^3.7.1",
+    "eslint-config-spatie": "^1.1.0"
   }
 }

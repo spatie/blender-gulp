@@ -12,7 +12,6 @@ module.exports = {
         dest: 'public/images/svg',
     },
     lint: {
-        js: ['resources/assets/js/**/*.js'],
         sass: [
             'resources/assets/sass/front/**/*.scss',
             '!resources/assets/sass/front/utility/*.scss',

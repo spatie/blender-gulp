@@ -18,13 +18,16 @@ const config = {
         chunkFilename: context('production') ? '[name]-[chunkhash].js' : '[name].js',
         publicPath: '/build/',
     },
+    resolve: {
+        extensions: ['', '.js', '.jsx', '.css', '.scss'],
+    },
     module: {
         preLoaders: [
             {
                 test: /\.(js|jsx)$/,
                 loader: 'eslint',
                 exclude: /node_modules/,
-            }
+            },
         ],
         loaders: [
             {
@@ -51,8 +54,8 @@ const config = {
         ExtractFrontCss,
         ExtractBackCss,
         new webpack.NormalModuleReplacementPlugin(/\.(jpe?g|png|gif|svg)$/, 'node-noop'),
-        function() {
-            this.plugin('watch-run', function(watching, callback) {
+        function () {
+            this.plugin('watch-run', function (watching, callback) {
                 process.stdout.write('\x1B[2J\x1B[0f');
                 callback();
             });
@@ -60,14 +63,14 @@ const config = {
     ],
     sassLoader: {
         includePaths: [
-            path.resolve(process.cwd(), 'node_modules')
+            path.resolve(process.cwd(), 'node_modules'),
         ],
     },
     postcss() {
         return [autoprefixer];
     },
-    resolve: {
-        extensions: ['', '.js', '.jsx', '.css', '.scss'],
+    eslint: {
+        fix: true,
     },
 };
 
