@@ -24,7 +24,4 @@ gulp.task('help', () => {
     gutil.log(gutil.colors.green('gulp lint:js'), '        lint your project\'s js files 🎀');
     gutil.log(gutil.colors.green('gulp lint:sass'), '      lint your project\'s sass files 🎀');
     gutil.log('');
-    gutil.log(gutil.colors.cyan('!! Environment settings'));
-    gutil.log(gutil.colors.cyan('!! Required: `APP_NAME` & `APP_URL`'));
-    gutil.log('');
 });
