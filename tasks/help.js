@@ -14,7 +14,6 @@ gulp.task('help', () => {
     gutil.log(gutil.colors.black.bgCyan('Build tasks'));
     gutil.log(gutil.colors.green('gulp'), gutil.colors.yellow('[--production]'), ' compile [& minify] assets 📦');
     gutil.log(gutil.colors.green('gulp watch'), '          compile & watch for changes 👀');
-    gutil.log(gutil.colors.dim('                      > your project will be served from `http://localhost:3000`'));
     gutil.log(gutil.colors.green('gulp webpack'), '        run the `webpack` command',
         gutil.colors.dim('> included in the default task'));
     gutil.log(gutil.colors.green('gulp svg'), '            minify svg files',
