@@ -1,6 +1,6 @@
 {
   "name": "blender-gulp",
-  "version": "2.4.2",
+  "version": "2.5.0",
   "description": "Blender CMS Gulp settings",
   "main": "gulpfile.js",
   "scripts": {

@@ -2,6 +2,11 @@
 
 All Notable changes to `blender-gulp` will be documented in this file
 
+### 2.5.0 - 2016-10-17
+- Added `lint:js` command
+- Cleaned up `help`
+- Removed `dotenv` package
+
 ### 2.4.2 - 2016-10-17
 - No more automatic eslint fixing
 
