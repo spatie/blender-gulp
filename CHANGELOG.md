@@ -2,27 +2,30 @@
 
 All Notable changes to `blender-gulp` will be documented in this file
 
-### 2.5.0 - 2016-10-17
+## 2.5.1 - 2016-10-17
+- Added js lint paths
+
+## 2.5.0 - 2016-10-17
 - Added `lint:js` command
 - Cleaned up `help`
 - Removed `dotenv` package
 
-### 2.4.2 - 2016-10-17
+## 2.4.2 - 2016-10-17
 - No more automatic eslint fixing
 
-### 2.4.0 - 2016-09-30
+## 2.4.0 - 2016-09-30
 - Removed favicon task
 
-### 2.2.0 - 2016-09-28
+## 2.2.0 - 2016-09-28
 - Removed webpack-dev-server and hot
 
-### 2.1.5 - 2016-06-08
+## 2.1.5 - 2016-06-08
 - Cleaned up babel dependencies
 
-### 2.1.4 - 2016-05-31
+## 2.1.4 - 2016-05-31
 - `use strict` in `lib`
 
-### 2.1.3 - 2016-05-30
+## 2.1.3 - 2016-05-30
 - Fixed dependencies
 
 ## 2.1.2 - 2016-05-30
