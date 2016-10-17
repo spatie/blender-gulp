@@ -69,9 +69,6 @@ const config = {
     postcss() {
         return [autoprefixer];
     },
-    eslint: {
-        fix: true,
-    },
 };
 
 if (!context('watch')) {
