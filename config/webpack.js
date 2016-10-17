@@ -5,7 +5,7 @@ const ManifestPlugin = require('webpack-manifest-plugin');
 const path = require('path');
 const webpack = require('webpack');
 
-const context = (context) => process.env.WEBPACK_CONTEXT === context;
+const context = context => process.env.WEBPACK_CONTEXT === context;
 
 const ExtractFrontCss = new ExtractTextPlugin('front', 'front-[hash].css');
 const ExtractBackCss = new ExtractTextPlugin('back', 'back-[hash].css');
