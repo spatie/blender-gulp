@@ -58,5 +58,5 @@
   },
   "peerDependencies": {
     "webpack": "^1.12.11",
-  },
+  }
 }
