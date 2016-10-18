@@ -57,6 +57,6 @@
     "eslint-config-spatie": "^1.1.0"
   },
   "peerDependencies": {
-    "webpack": "^1.12.11",
+    "webpack": "^1.12.11"
   }
 }
