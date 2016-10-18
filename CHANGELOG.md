@@ -2,6 +2,9 @@
 
 All Notable changes to `blender-gulp` will be documented in this file
 
+## 2.5.2 - 2016-10-18
+- Use local webpack installation instead of the global one
+
 ## 2.5.1 - 2016-10-17
 - Added js lint paths
 

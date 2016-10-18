@@ -17,5 +17,5 @@ gulp.task('webpack', (callback) => {
         options.push('-w');
     }
 
-    spawn('webpack', options, callback);
+    spawn('node_modules/.bin/webpack', options, callback);
 });
