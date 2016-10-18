@@ -2,6 +2,9 @@
 
 All Notable changes to `blender-gulp` will be documented in this file
 
+## 2.5.3 - 2016-10-18
+- Webpack peerDependency
+
 ## 2.5.2 - 2016-10-18
 - Use local webpack installation instead of the global one
 
