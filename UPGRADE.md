@@ -2,11 +2,13 @@
 
 blender-gulp doesn't follow semver because it's not an officially published package, so we're not afraid of making the occasional breaking change. Here's a list of common errors that require a quick upgrade step to get your installation back on track.
 
-# Dealing with ESLint
+---
+
+## Dealing with ESLint
 
 If you've updated to a version that suddenly lints your JavaScript and dumps a massive error list, you have two options.
 
-## a) The easy way out: Don't upgrade blender-gulp
+### a) The easy way out: Don't upgrade blender-gulp
 
 You can lock the `blender-gulp` dependency to version 2.2.0, which doesn't include ESLint yet.
 
@@ -18,7 +20,7 @@ You can lock the `blender-gulp` dependency to version 2.2.0, which doesn't inclu
 }
 ```
 
-## b) Configure ESLint in your project
+### b) Configure ESLint in your project
 
 First you'll need to add an `.eslintrc` and `.eslintignore` file to the root of your project. Just grab them from the latest version of [Blender](https://github.com/spatie-custom/blender).
 
@@ -38,7 +40,9 @@ gulp lint:js
 
 The remaining errors will need to be fixed manually.
 
-# `spawn node_modules/.bin/webpack ENOENT`
+---
+
+## Dealing with `spawn node_modules/.bin/webpack ENOENT`
 
 ```
 events.js:160
