@@ -2,6 +2,9 @@
 
 All Notable changes to `blender-gulp` will be documented in this file
 
+## 3.0.03 - 2016-10-25
+- Allow multiple scss files
+
 ## 2.5.3 - 2016-10-18
 - Webpack peerDependency
 
