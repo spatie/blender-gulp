@@ -7,8 +7,7 @@ const webpack = require('webpack');
 
 const context = context => process.env.WEBPACK_CONTEXT === context;
 
-const ExtractFrontCss = new ExtractTextPlugin('front', 'front-[hash].css');
-const ExtractBackCss = new ExtractTextPlugin('back', 'back-[hash].css');
+const ExtractCss = new ExtractTextPlugin('[name]', '[name]-[hash].css');
 
 const config = {
     context: path.resolve(process.cwd(), 'resources/assets'),
@@ -37,13 +36,11 @@ const config = {
             },
             {
                 test: /\.scss$/,
-                include: /\/sass\/front\//,
-                loader: ExtractFrontCss.extract('style', 'css!postcss!sass!import-glob-loader'),
-            },
-            {
-                test: /\.scss$/,
-                include: /\/sass\/back\//,
-                loader: ExtractBackCss.extract('style', 'css!postcss!sass!import-glob-loader'),
+                include: [
+                    /\/sass\/front\//,
+                    /\/sass\/back\//
+                ],
+                loader: ExtractCss.extract('style', 'css!postcss!sass!import-glob-loader'),
             },
         ],
     },
@@ -51,8 +48,7 @@ const config = {
         new ManifestPlugin({
             fileName: 'rev-manifest.json',
         }),
-        ExtractFrontCss,
-        ExtractBackCss,
+        ExtractCss,
         new webpack.NormalModuleReplacementPlugin(/\.(jpe?g|png|gif|svg)$/, 'node-noop'),
         function () {
             this.plugin('watch-run', function (watching, callback) {
