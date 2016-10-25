@@ -36,10 +36,6 @@ const config = {
             },
             {
                 test: /\.scss$/,
-                include: [
-                    /\/sass\/front\//,
-                    /\/sass\/back\//
-                ],
                 loader: ExtractCss.extract('style', 'css!postcss!sass!import-glob-loader'),
             },
         ],
