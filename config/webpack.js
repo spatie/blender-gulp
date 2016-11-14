@@ -18,7 +18,7 @@ const config = {
         publicPath: '/build/',
     },
     resolve: {
-        extensions: ['', '.js', '.jsx', '.css', '.scss'],
+        extensions: ['', '.js', '.jsx', '.vue', '.css', '.scss'],
     },
     module: {
         preLoaders: [
@@ -33,6 +33,10 @@ const config = {
                 test: /.jsx?$/,
                 loaders: ['babel'],
                 exclude: /node_modules/,
+            },
+            {
+                test: /\.vue$/,
+                loaders: ['vue'],
             },
             {
                 test: /\.scss$/,

@@ -2,7 +2,10 @@
 
 All Notable changes to `blender-gulp` will be documented in this file
 
-## 3.0.03 - 2016-10-25
+## 3.1.0 - 2016-11-14
+- Load and handle `.vue` files by default
+
+## 3.0.0 - 2016-10-25
 - Allow multiple scss files
 
 ## 2.5.3 - 2016-10-18

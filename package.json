@@ -1,6 +1,6 @@
 {
   "name": "blender-gulp",
-  "version": "3.0.0",
+  "version": "3.1.0",
   "description": "Blender CMS Gulp settings",
   "main": "gulpfile.js",
   "scripts": {
@@ -33,7 +33,7 @@
     "babel-core": "^6.0.0",
     "babel-loader": "^6.2.0",
     "clean-webpack-plugin": "^0.1.6",
-    "css-loader": "^0.14.5",
+    "css-loader": "^0.25.0",
     "eslint-loader": "^1.5.0",
     "extract-text-webpack-plugin": "^1.0.1",
     "global-modules": "^0.2.0",
@@ -49,12 +49,14 @@
     "run-sequence": "^1.1.5",
     "sass-loader": "^3.1.2",
     "style-loader": "^0.13.0",
+    "vue-loader": "^9.9.0",
     "webpack-manifest-plugin": "^0.5.0"
   },
   "devDependencies": {
     "babel": "^6.5.0",
     "eslint": "^3.7.1",
-    "eslint-config-spatie": "^1.1.0"
+    "eslint-config-spatie": "^1.1.0",
+    "webpack": "^1.12.11"
   },
   "peerDependencies": {
     "webpack": "^1.12.11"
