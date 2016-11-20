@@ -1,3 +1,4 @@
+const autoprefixer = require('autoprefixer');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const ManifestPlugin = require('webpack-manifest-plugin');
@@ -6,7 +7,7 @@ const webpack = require('webpack');
 
 const context = context => process.env.WEBPACK_CONTEXT === context;
 
-const ExtractCss = new ExtractTextPlugin('[name]-[hash].css');
+const ExtractCss = new ExtractTextPlugin('[name]', '[name]-[hash].css');
 
 const config = {
     context: path.resolve(process.cwd(), 'resources/assets'),
@@ -17,16 +18,16 @@ const config = {
         publicPath: '/build/',
     },
     resolve: {
-        extensions: ['.js', '.jsx', '.vue', '.css', '.scss'],
+        extensions: ['', '.js', '.jsx', '.vue', '.css', '.scss'],
     },
     module: {
-        // preLoaders: [
-        //    {
-        //        test: /\.(js|jsx)$/,
-        //        loader: 'eslint',
-        //        exclude: /node_modules/,
-        //    },
-        // ],
+        preLoaders: [
+            {
+                test: /\.(js|jsx)$/,
+                loader: 'eslint',
+                exclude: /node_modules/,
+            },
+        ],
         loaders: [
             {
                 test: /.jsx?$/,
@@ -55,16 +56,15 @@ const config = {
                 callback();
             });
         },
-        new webpack.LoaderOptionsPlugin({
-            options: {
-                sassLoader: {
-                    includePaths: [
-                        path.resolve(process.cwd(), 'node_modules'),
-                    ],
-                },
-            },
-        }),
     ],
+    sassLoader: {
+        includePaths: [
+            path.resolve(process.cwd(), 'node_modules'),
+        ],
+    },
+    postcss() {
+        return [autoprefixer];
+    },
 };
 
 if (!context('watch')) {
