@@ -64,5 +64,5 @@ Error: spawn node_modules/.bin/webpack ENOENT
 In version 2.5.2+, webpack needs to be added as a peerDependency of your project, and needs to be added through yarn or npm.
 
 ```
-yarn add webpack@'^1.12' --dev'
+yarn add webpack@'^1.12' --dev
 ```
