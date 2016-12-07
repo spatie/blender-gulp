@@ -2,6 +2,9 @@
 
 All Notable changes to `blender-gulp` will be documented in this file
 
+## 3.2.1 - 2016-12-07
+- Versioning improvements
+
 ## 3.2.0 - 2016-12-07
 - Webpack config is now a factory function
 - Versioning can be disabled

@@ -9,7 +9,10 @@ const context = context => process.env.WEBPACK_CONTEXT === context;
 
 module.exports = ({ versioning = true } = {}) => {
 
-    const ExtractCss = new ExtractTextPlugin('[name]', '[name]-[hash].css');
+    const extractCss = new ExtractTextPlugin(
+        '[name]', 
+        versioning && context('production') ? '[name]-[hash].css' : '[name].css'
+    );
 
     const config = {
         context: path.resolve(process.cwd(), 'resources/assets'),
@@ -42,15 +45,12 @@ module.exports = ({ versioning = true } = {}) => {
                 },
                 {
                     test: /\.scss$/,
-                    loader: ExtractCss.extract('style', 'css!postcss!sass!import-glob-loader'),
+                    loader: extractCss.extract('style', 'css!postcss!sass!import-glob-loader'),
                 },
             ],
         },
         plugins: [
-            new ManifestPlugin({
-                fileName: 'rev-manifest.json',
-            }),
-            ExtractCss,
+            extractCss,
             new webpack.NormalModuleReplacementPlugin(/\.(jpe?g|png|gif|svg)$/, 'node-noop'),
             function () {
                 this.plugin('watch-run', function (watching, callback) {
@@ -69,7 +69,15 @@ module.exports = ({ versioning = true } = {}) => {
         },
     };
 
-    if (!context('watch')) {
+    if (versioning) {
+        config.plugins = config.plugins.concat([
+            new ManifestPlugin({
+                fileName: 'rev-manifest.json',
+            }),
+        ]);
+    }
+
+    if (! context('watch')) {
         config.plugins = config.plugins.concat([
             new CleanWebpackPlugin('public/build', {
                 root: process.cwd(),
