@@ -2,6 +2,10 @@
 
 All Notable changes to `blender-gulp` will be documented in this file
 
+## 3.2.0 - 2016-12-07
+- Webpack config is now a factory function
+- Versioning can be disabled
+
 ## 3.1.0 - 2016-11-14
 - Load and handle `.vue` files by default
 
