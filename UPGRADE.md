@@ -4,6 +4,12 @@ blender-gulp doesn't follow semver because it's not an officially published pack
 
 ---
 
+## Updating from 2.x to 3.x
+
+- In your project's `webpack.config.js`, replace `require('blender-gulp/config/webpack')` with `require('blender-gulp/config/webpack')()`
+
+---
+
 ## Dealing with ESLint
 
 If you've updated to a version that suddenly lints your JavaScript and dumps a massive error list, you have two options.
